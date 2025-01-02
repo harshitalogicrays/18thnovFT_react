@@ -1,0 +1,20 @@
+npm  - 
+npm i create-react-app
+create-react-app appname 
+
+npx create-react-app appname
+
+
+express-generator
+routes 
+view - template engine 
+www 
+app.js 
+package.json
+controller 
+model 
+
+Git is a distributed version control system[9] that tracks versions of files. It is often used to control source code by programmers who are developing software collaboratively.
+
+GitHub -  
+GitHub is a proprietary developer platform that allows developers to create, store, manage, and share their code. It uses Git to provide distributed version control and GitHub itself provides access control, bug tracking, software feature requests, task management, continuous integration, and wikis for every project. Headquartered in California, it has been a subsidiary of Microsoft since 2018.
