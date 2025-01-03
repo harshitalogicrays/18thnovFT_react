@@ -1,0 +1,46 @@
+components -  reusable block of code
+functional or class components
+
+functional components - function 
+class components -  class 
+
+rfc 
+rafc 
+rcc 
+=================================
+container / wrapper -
+1. React.Fragment
+2. Fragment => import {Fragment} from 'react'
+3. <></> => shorthand of fragment
+
+=========================================
+functional components - 
+props - read only
+
+<h1 id="" class="" style="">
+    <p></p>
+    <span></span>
+</h1>
+
+function fun(props){
+
+}
+fun("Atul")
+
+a>b ? a : ""
+
+condition ? (JSX/String) : (JSX/string)
+
+a>b && a
+a>b || "" 
+
+short circuit operator - &&
+condition && true 
+(true)
+
+condition || stmt 
+(False)
+
+=============================================
+event 
+state 
