@@ -1,0 +1,57 @@
+event 
+state 
+counter app -> 
+button -> 1
+
+class component - statefull
+variable => state 
+
+function component => stateless 
+react16 -> hooks (react functions for functional component) => statefull 
+
+hooks - 
+1. builtin hooks 
+2. custom hook 
+
+useState 
+useEffect 
+useRef 
+useContext 
+useCallback 
+useMemo etc.
+
+
+-5 => --5=> 5 
+5 => -5
+======================================
+CSS -
+1. inline  - 
+ <h1 style ={ {color:"orange" , textDecoration : "underline"} }>Total = {result}</h1>
+
+
+2. css variable  - 
+  let styles = {color:"red" , textDecoration : "overline" ,backgroundColor:'wheat'}
+    <h1 style={styles}>State Demo</h1>
+
+3. css file -> import 'path'
+parent import -> all children can use it directly without importing it
+
+4. css module file -> .module.css 
+import cssmodule from 'path'
+
+<h1 className = {cssmodule.class}></h1>
+
+bootstrap 
+===============================================================
+list rendering  and key props 
+react-bootstrap 
+styled-components 
+
+
+====================================
+React.createElement() 
+babel 
+
+bind()
+
+========================================
