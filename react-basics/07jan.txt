@@ -1,0 +1,27 @@
+Product Card -> 
+ 
+declutter components  - 
+
+Products -> list of product 
+ProductsItem 
+Product Card
+
+    if(){return(<></>)}
+    else {return()}
+
+=====================================
+ 
+Routing - react-router 
+dynamic parameter - http://localhost:3000/fun/props/:name       
+                    http://localhost:3000/fun/props/ram
+Query Parameter 
+
+Query String - ?username=ram&email=ram@test.com
+http://localhost:3000/fun/props?username=ram&email=ram@test.com
+
+==================================================================
+nested routes  - 
+child 
+dynamically fill dropdown - Array of Objects 
+
+Form Validations 

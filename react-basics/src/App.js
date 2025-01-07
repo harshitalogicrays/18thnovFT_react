@@ -8,6 +8,9 @@ import Statedemocounter from './components/functionalcomp/Statedemocounter';
 import cssm from './app.module.css'
 import Image1 from './assets/images/a.jpg'
 import ListRendering from './components/functionalcomp/ListRendering';
+import Products from './components/functionalcomp/Products';
+import SaleProducts from './components/functionalcomp/SaleProducts';
+import Header from './components/functionalcomp/Header';
 function App() {
   let name = "Happy Singh"
   return (
@@ -36,8 +39,11 @@ function App() {
       {/* <Statedemocounter c={1}/> */}
       {/* <Statedemo1/> */}
 
-      <ListRendering/>
+      {/* <ListRendering/> */}
 
+      <Header/>
+      <Products/>
+      <SaleProducts/>
     </>
   );
 }
