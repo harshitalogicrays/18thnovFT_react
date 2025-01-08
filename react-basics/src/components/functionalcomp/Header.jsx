@@ -1,6 +1,16 @@
 import React from 'react'
+import { NavLink } from 'react-router'
 
 const Header = () => {
+  let funlinks = [
+    {id:1,url:"/fun/first",text:"First Functional Component"},
+    {id:2,url:"/fun/props",text:"Props in Functional Component"},
+    {id:3,url:"/fun/state",text:"State in Functional Component"},
+    {id:4,url:"/fun/counter",text:"Counter App"},
+    {id:5,url:"/fun/list",text:"List Rendering"},
+    {id:6,url:"/fun/list/products",text:"List Rendering2"},
+    {id:7,url:"/fun/form/validation/regular" ,text:"Form Validations"}
+  ]
   return (
     <>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
@@ -12,21 +22,55 @@ const Header = () => {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <a class="nav-link" >
+            <NavLink to='/'  className={({ isActive }) =>
+                  isActive ? "text-danger bg-warning text-decoration-none" : "text-white text-decoration-none"
+                }>Home</NavLink>
+        </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link" >
+            <NavLink to='/about'
+              style={({ isActive }) => ({
+                color: isActive ? "red" : "white",
+                backgroundColor:isActive ? "yellow" : "",
+                textDecoration:"none"
+              })}
+            >About</NavLink></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Functional Component
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"/></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            {funlinks.map((link,index)=>
+            <React.Fragment key={link.id}>
+                <li><a class="dropdown-item"><NavLink to={link.url}
+                  style={({ isActive }) => ({
+                    color: isActive ? "red" : "black",
+                    backgroundColor:isActive ? "yellow" : "",
+                    textDecoration:"none"
+                  })} 
+                  end
+                >{link.text}</NavLink></a></li>
+                {index != funlinks.length-1 && 
+                <li><hr class="dropdown-divider"/></li>}
+            </React.Fragment>
+            )}
+           
           </ul>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" >
+            <NavLink to='/class/first'
+              style={({ isActive }) => ({
+                color: isActive ? "red" : "white",
+                backgroundColor:isActive ? "yellow" : "",
+                textDecoration:"none"
+              })}
+            >Class Component</NavLink></a>
         </li>
       </ul>
       <form class="d-flex" role="search">

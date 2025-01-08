@@ -11,6 +11,7 @@ import ListRendering from './components/functionalcomp/ListRendering';
 import Products from './components/functionalcomp/Products';
 import SaleProducts from './components/functionalcomp/SaleProducts';
 import Header from './components/functionalcomp/Header';
+import { Outlet } from 'react-router';
 function App() {
   let name = "Happy Singh"
   return (
@@ -42,8 +43,7 @@ function App() {
       {/* <ListRendering/> */}
 
       <Header/>
-      <Products/>
-      <SaleProducts/>
+      <Outlet/>
     </>
   );
 }

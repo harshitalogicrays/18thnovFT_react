@@ -20,8 +20,3 @@ Query String - ?username=ram&email=ram@test.com
 http://localhost:3000/fun/props?username=ram&email=ram@test.com
 
 ==================================================================
-nested routes  - 
-child 
-dynamically fill dropdown - Array of Objects 
-
-Form Validations 

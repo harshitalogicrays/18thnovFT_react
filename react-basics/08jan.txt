@@ -1,0 +1,24 @@
+nested routes  - 
+child 
+dynamically fill dropdown - Array of Objects 
+
+Form Validations 
+
+React-bootstrap -> 
+CSS Component built using bootstrap 
+
+div class="container" => <Container></Container>
+div class="row" => <Row> 
+col => <Col>
+
+input class="form-control => <Form.Control />
+
+====================================
+Submit event 
+validations 
+
+styled-components 
+lifting the state up
+
+
+react hook form -> form validations 
