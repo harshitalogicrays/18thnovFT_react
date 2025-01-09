@@ -9,7 +9,8 @@ const Header = () => {
     {id:4,url:"/fun/counter",text:"Counter App"},
     {id:5,url:"/fun/list",text:"List Rendering"},
     {id:6,url:"/fun/list/products",text:"List Rendering2"},
-    {id:7,url:"/fun/form/validation/regular" ,text:"Form Validations"}
+    {id:7,url:"/fun/form/validation/regular" ,text:"Form Validations"},
+    {id:7,url:"/fun/form/validation/rhf" ,text:"React Hook Form"}
   ]
   return (
     <>

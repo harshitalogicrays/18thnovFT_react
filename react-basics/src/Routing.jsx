@@ -12,6 +12,7 @@ import ListRendering from './components/functionalcomp/ListRendering';
 import Products from './components/functionalcomp/Products';
 import Firstclasscomp from './components/classcomp/firstclasscomp';
 import Form1 from './components/functionalcomp/Form1';
+import ReactHookFormDemo from './components/functionalcomp/ReactHookFormDemo';
 const Routing = () => {
   return (
    <>
@@ -26,6 +27,7 @@ const Routing = () => {
                 <Route path="fun/list" element={<ListRendering/>}></Route>
                 <Route path="fun/list/products" element={<Products/>}></Route>
                 <Route path="fun/form/validation/regular" element={<Form1/>}></Route>
+                <Route path="fun/form/validation/rhf" element={<ReactHookFormDemo/>}></Route>
 
                 <Route path="class/first" element={<Firstclasscomp/>}/>
             </Route>

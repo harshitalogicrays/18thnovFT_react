@@ -1,0 +1,31 @@
+====================================
+Submit event 
+validations 
+
+formik library 
+react hook form -> form validations  -> HTML validations 
+required 
+minLength 
+maxLength
+pattern 
+min 
+max 
+
+ {...register("username" , {required:"username is required"} )}
+
+ {...register("username" , {required:{value:true , message:"username is required"} } )}
+
+
+  {...register("username" , {required:"username is required" ,
+                            maxLength:{value:20,message:"20char max"}
+   } )}
+
+   ====================================================
+   
+styled-components 
+lifting the state up
+
+Form - controlled components
+      uncontrolled components
+
+
