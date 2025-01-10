@@ -10,8 +10,10 @@ const Header = () => {
     {id:5,url:"/fun/list",text:"List Rendering"},
     {id:6,url:"/fun/list/products",text:"List Rendering2"},
     {id:7,url:"/fun/form/validation/regular" ,text:"Form Validations"},
-    {id:7,url:"/fun/form/validation/rhf" ,text:"React Hook Form"}
-  ]
+    {id:8,url:"/fun/form/validation/rhf" ,text:"React Hook Form"},
+    {id:9,url:"/fun/ltsu" ,text:"Lifting the state up"},
+    {id:10,url:"/fun/uncontrolled" ,text:"Uncontrolled comp"},
+  ] 
   return (
     <>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
@@ -72,6 +74,17 @@ const Header = () => {
                 textDecoration:"none"
               })}
             >Class Component</NavLink></a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" >
+            <NavLink to='/styledcomp'
+              style={({ isActive }) => ({
+                color: isActive ? "red" : "white",
+                backgroundColor:isActive ? "yellow" : "",
+                textDecoration:"none"
+              })}
+            >Styled Component</NavLink></a>
         </li>
       </ul>
       <form class="d-flex" role="search">

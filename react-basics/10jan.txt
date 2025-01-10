@@ -1,0 +1,40 @@
+styled-components 
+
+
+<MyButton></MyButton>
+
+lifting the state up - 
+Parent Component -> state variable (private)
+props -> 
+
+Child Component -> i want to change the parent state variable 
+==============================
+
+
+Form - controlled components - react manages it -> state and onChange handler
+state variable , we initialze 
+
+useState() hook 
+state object  and setState() - class
+ 
+uncontrolled components - DOM manages it , not react 
+create a reference - ref 
+reference returns a property  - current 
+useRef()
+createRef() - class 
+
+state vs ref 
+
+
+functional component  -
+
+useEffect -> load , change of state and unload (cleanup)
+
+React.useEffect(()=>{},[])
+
+=========================================
+useImperativeHandle 
+
+useCallback + useEffect 
+useMemo 
+useTransition

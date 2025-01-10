@@ -21,11 +21,5 @@ max
    } )}
 
    ====================================================
-   
-styled-components 
-lifting the state up
-
-Form - controlled components
-      uncontrolled components
 
 
