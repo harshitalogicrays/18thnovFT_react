@@ -1,0 +1,29 @@
+Lifting the state up -
+parent ->state 
+change state of parent from child 
+
+so we passed set state function as an prop to the child
+
+=========================
+child state - 
+
+useImperativeHandle - allow parent to access specific methods or properties of child component through a ref without exposing the entire child component's implementation details.
+
+
+Primary memory - RAM , ROM (micro program - system booting process )
+secondary memory - HDD, SSD, Ped drive  
+
+RAM  -  
+
+input -----> RAM ----> output 
+            
+            CPU -> ALU , CU 
+
+useCallback hook - 
+useCallback is a React Hook that lets you cache a function definition between re-renders.
+
+====================================================
+useMemo hook 
+useTransition 
+useContext 
+custom hook 

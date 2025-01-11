@@ -1,3 +1,9 @@
+
+input::selection {
+  background-color: yellow;
+  color:red
+}
+
 .App {
   text-align: center;
 }

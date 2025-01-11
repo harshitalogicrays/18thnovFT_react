@@ -16,16 +16,20 @@ import ReactHookFormDemo from './components/functionalcomp/ReactHookFormDemo';
 import StyledComponents from './components/functionalcomp/StyledComponents';
 import LTSTParent from './components/functionalcomp/LTSTParent';
 import UncontrolledComp from './components/functionalcomp/UncontrolledComp';
+import HooksDemo from './components/functionalcomp/HooksDemo';
+import UseImperativeHandleDemo from './components/functionalcomp/UseImperativeHandleDemo';
+import UseCallbackDemo from './components/functionalcomp/UseCallbackDemo';
+import UseMemoDemo from './components/functionalcomp/UseMemoDemo';
+import UseTransitionDemo from './components/functionalcomp/UseTransitionDemo';
 const Routing = () => {
   return (
    <>
      <Routes>
             <Route path="/" element={<App/>}>
-                <Route path="" element={<Home/>}></Route>
+                <Route index element={<Home/>}></Route>
                 <Route path="about" element={<About/>}></Route>
                 <Route path="fun/first" element={<FirstFunComp/>}></Route>
-                <Route path="fun/props" element={<PropsDemoinfun/>}></Route>
-                <Route path="fun/state" element={<Statedemo1/>}></Route>
+                <Route path="fun/props" element={<PropsDemoinfun/>}></Route>         
                 <Route path="fun/counter" element={<Statedemocounter/>}></Route>
                 <Route path="fun/list" element={<ListRendering/>}></Route>
                 <Route path="fun/list/products" element={<Products/>}></Route>
@@ -34,8 +38,14 @@ const Routing = () => {
                  </Route>
                 <Route path="fun/ltsu" element={<LTSTParent/>}/>
                 <Route path="styledcomp" element={<StyledComponents/>}></Route>
-                <Route path="fun/uncontrolled" element={<UncontrolledComp/>}/>
-
+                <Route path="fun/hooks" element={<HooksDemo/>}>
+                   <Route index element={<Statedemo1/>}></Route>
+                   <Route path="uncontrolled" element={<UncontrolledComp/>}/>
+                    <Route path="imperativehandle" element={<UseImperativeHandleDemo/>}/>
+                    <Route path="usecallback" element={<UseCallbackDemo/>}/>
+                    <Route path="usememo" element={<UseMemoDemo/>}/>
+                    <Route path="usetransition" element={<UseTransitionDemo/>}/>
+                </Route>
                 
                 <Route path="class/first" element={<Firstclasscomp/>}/>
             </Route>

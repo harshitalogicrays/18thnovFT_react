@@ -5,14 +5,13 @@ const Header = () => {
   let funlinks = [
     {id:1,url:"/fun/first",text:"First Functional Component"},
     {id:2,url:"/fun/props",text:"Props in Functional Component"},
-    {id:3,url:"/fun/state",text:"State in Functional Component"},
     {id:4,url:"/fun/counter",text:"Counter App"},
     {id:5,url:"/fun/list",text:"List Rendering"},
     {id:6,url:"/fun/list/products",text:"List Rendering2"},
     {id:7,url:"/fun/form/validation/regular" ,text:"Form Validations"},
     {id:8,url:"/fun/form/validation/rhf" ,text:"React Hook Form"},
     {id:9,url:"/fun/ltsu" ,text:"Lifting the state up"},
-    {id:10,url:"/fun/uncontrolled" ,text:"Uncontrolled comp"},
+   {id:10,url:"/fun/hooks" ,text:"Hooks Demo"},
   ] 
   return (
     <>
