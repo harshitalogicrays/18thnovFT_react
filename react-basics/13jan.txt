@@ -1,0 +1,45 @@
+useCallback hook - 
+useCallback is a React Hook that lets you cache a function definition between re-renders.
+
+====================================================
+useMemo hook  - useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+
+
+useTransition  - useTransition is a React Hook that lets you render a part of the UI in the background.
+
+useContext  -  to consume context in functional component
+useContext is a React Hook that lets you read and subscribe to context from your component.
+
+pass data from one component to other -> 
+Parent to child ==> using props 
+
+Context -> 
+1. create context - 
+    const cont1 = React.createContext()
+
+2. const App = ({children})=>{
+    let [name,setName] =useState("happy")
+    let changeName=(val)=>setName(val)
+    let [a,setA] =useState(10)
+    return (
+    <cont1.Provider value={{name,changeName}}>
+            {children}
+        </cont1.Provider>
+    )
+}
+  
+3. App child is Home component -> 
+    let con = useContext(cont1)
+    console.log(con.name)
+
+
+    <App>
+
+    </App>
+===================================================
+
+
+========================================================================
+custom hook 
+
+ESLinting   

@@ -21,6 +21,7 @@ import UseImperativeHandleDemo from './components/functionalcomp/UseImperativeHa
 import UseCallbackDemo from './components/functionalcomp/UseCallbackDemo';
 import UseMemoDemo from './components/functionalcomp/UseMemoDemo';
 import UseTransitionDemo from './components/functionalcomp/UseTransitionDemo';
+import CustomHook from './components/functionalcomp/CustomHook';
 const Routing = () => {
   return (
    <>
@@ -45,6 +46,7 @@ const Routing = () => {
                     <Route path="usecallback" element={<UseCallbackDemo/>}/>
                     <Route path="usememo" element={<UseMemoDemo/>}/>
                     <Route path="usetransition" element={<UseTransitionDemo/>}/>
+                    <Route path="customhook" element={<CustomHook/>}/>
                 </Route>
                 
                 <Route path="class/first" element={<Firstclasscomp/>}/>

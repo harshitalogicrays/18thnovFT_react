@@ -10,6 +10,8 @@ const HooksDemo = () => {
         {url:"/fun/hooks/usecallback",text:"useCallback. useRef and useEffect demo"},
         {url:"/fun/hooks/usememo",text:"useMemo demo"},
         {url:"/fun/hooks/usetransition",text:"useTransition demo"},
+        {url:"/fun/hooks/customhook",text:"customhook demo"},
+
     ]
   return (
     <Row>

@@ -11,6 +11,9 @@ const UseImperativeHandleDemo = () => {
       >Get Value </button>
       <button  type="button" class="btn btn-primary" 
        onClick={()=>innerRef.current.clearValue()}>Clear Value </button>
+
+       <button  type="button" class="btn btn-primary" 
+       onClick={()=>alert(innerRef.current.fetchValue1())}>Focus </button>
       <UseImperativeHandleDemoChild ref={innerRef}/>
     </div>
   )
