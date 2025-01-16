@@ -12,6 +12,9 @@ import Products from './components/functionalcomp/Products';
 import SaleProducts from './components/functionalcomp/SaleProducts';
 import Header from './components/functionalcomp/Header';
 import { Outlet } from 'react-router';
+import React  from 'react';
+import ThemeContext from './ThemeContext';
+
 function App() {
   let name = "Happy Singh"
   return (
@@ -42,8 +45,10 @@ function App() {
 
       {/* <ListRendering/> */}
 
-      <Header/>
-      <Outlet/>
+      <ThemeContext>
+          <Header/>
+          <Outlet/>
+      </ThemeContext>
     </>
   );
 }

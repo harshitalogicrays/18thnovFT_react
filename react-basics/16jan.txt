@@ -1,0 +1,34 @@
+
+Context -> 
+1. create context - 
+    const cont1 = React.createContext()
+
+2. const App = ({children})=>{
+    let [name,setName] =useState("happy")
+    let changeName=(val)=>setName(val)
+    let [a,setA] =useState(10)
+    return (
+    <cont1.Provider value={{name,changeName}}>
+            {children}
+        </cont1.Provider>
+    )
+}
+  
+3. App child is Home component -> 
+    let con = useContext(cont1)
+    console.log(con.name)
+
+
+    <App>
+
+    </App>
+========================================================================
+custom hook - useToogle  => name of custom component
+
+let useToogle = ()=>{
+    return var /array /obj /function/promise
+}
+
+======================================================================================
+
+class component 

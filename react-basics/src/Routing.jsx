@@ -22,11 +22,12 @@ import UseCallbackDemo from './components/functionalcomp/UseCallbackDemo';
 import UseMemoDemo from './components/functionalcomp/UseMemoDemo';
 import UseTransitionDemo from './components/functionalcomp/UseTransitionDemo';
 import CustomHook from './components/functionalcomp/CustomHook';
+import ContextData from './components/ContextData';
 const Routing = () => {
   return (
    <>
      <Routes>
-            <Route path="/" element={<App/>}>
+            <Route path="/" element={<ContextData><App/></ContextData>}>
                 <Route index element={<Home/>}></Route>
                 <Route path="about" element={<About/>}></Route>
                 <Route path="fun/first" element={<FirstFunComp/>}></Route>

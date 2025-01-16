@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router'
+import ThemeBtn from '../../ThemeBtn'
 
 const Header = () => {
   let funlinks = [
@@ -86,6 +87,9 @@ const Header = () => {
             >Styled Component</NavLink></a>
         </li>
       </ul>
+        
+        <ThemeBtn/>
+
       <form class="d-flex" role="search">
         <div className="input-group">
         <input class="form-control" type="search" placeholder="Search" aria-label="Search"/>
