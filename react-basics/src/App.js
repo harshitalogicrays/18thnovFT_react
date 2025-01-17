@@ -45,10 +45,7 @@ function App() {
 
       {/* <ListRendering/> */}
 
-      <ThemeContext>
-          <Header/>
           <Outlet/>
-      </ThemeContext>
     </>
   );
 }

@@ -1,0 +1,16 @@
+class component  - statefull component 
+functional component  - stateless component -> hooks -> statefull  
+
+
+class Abc extends component{
+    constructor(props,fn){
+        super(props)
+        this.fname = fn 
+        this.state = {}
+    }
+    display(){}
+    getdata = ()=>{}
+}
+==============
+form validations 
+Ref 

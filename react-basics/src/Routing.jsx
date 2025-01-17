@@ -23,34 +23,62 @@ import UseMemoDemo from './components/functionalcomp/UseMemoDemo';
 import UseTransitionDemo from './components/functionalcomp/UseTransitionDemo';
 import CustomHook from './components/functionalcomp/CustomHook';
 import ContextData from './components/ContextData';
+import Login from './components/functionalcomp/Login';
+import Register from './components/functionalcomp/Register';
+import ThemeContext from './ThemeContext';
+import Header from './components/functionalcomp/Header';
+import ClassLayout from './components/classcomp/ClassLayout';
+import Propsinclass from './components/classcomp/Propsinclass';
+import Stateandeventinclass from './components/classcomp/Stateandeventinclass';
+import Forminclass from './components/classcomp/Forminclass';
+import Formvalidationinclass from './components/classcomp/Formvalidationinclass';
+import LifeCycleMethods from './components/classcomp/LifeCycleMethods';
+import Refinclass from './components/classcomp/Refinclass';
+import PureCompDemo from './components/classcomp/PureCompDemo';
 const Routing = () => {
   return (
    <>
      <Routes>
             <Route path="/" element={<ContextData><App/></ContextData>}>
-                <Route index element={<Home/>}></Route>
-                <Route path="about" element={<About/>}></Route>
-                <Route path="fun/first" element={<FirstFunComp/>}></Route>
-                <Route path="fun/props" element={<PropsDemoinfun/>}></Route>         
-                <Route path="fun/counter" element={<Statedemocounter/>}></Route>
-                <Route path="fun/list" element={<ListRendering/>}></Route>
-                <Route path="fun/list/products" element={<Products/>}></Route>
-                <Route path="fun/form/validation/regular" element={<Form1/>}></Route>
-                <Route path="fun/form/validation/rhf" element={<ReactHookFormDemo/>}>
-                 </Route>
-                <Route path="fun/ltsu" element={<LTSTParent/>}/>
-                <Route path="styledcomp" element={<StyledComponents/>}></Route>
-                <Route path="fun/hooks" element={<HooksDemo/>}>
-                   <Route index element={<Statedemo1/>}></Route>
-                   <Route path="uncontrolled" element={<UncontrolledComp/>}/>
-                    <Route path="imperativehandle" element={<UseImperativeHandleDemo/>}/>
-                    <Route path="usecallback" element={<UseCallbackDemo/>}/>
-                    <Route path="usememo" element={<UseMemoDemo/>}/>
-                    <Route path="usetransition" element={<UseTransitionDemo/>}/>
-                    <Route path="customhook" element={<CustomHook/>}/>
-                </Route>
+                <Route element={<ThemeContext><Header/></ThemeContext>}>
+                    <Route index element={<Home/>}></Route>
+                    <Route path="about" element={<About/>}></Route>
+                    <Route path="fun/first" element={<FirstFunComp/>}></Route>
+                    <Route path="fun/props" element={<PropsDemoinfun/>}></Route>         
+                    <Route path="fun/counter" element={<Statedemocounter/>}></Route>
+                    <Route path="fun/list" element={<ListRendering/>}></Route>
+                    <Route path="fun/list/products" element={<Products/>}></Route>
+                    <Route path="fun/form/validation/regular" element={<Form1/>}></Route>
+                    <Route path="fun/form/validation/rhf" element={<ReactHookFormDemo/>}>
+                    </Route>
+                    <Route path="fun/ltsu" element={<LTSTParent/>}/>
+                    <Route path="styledcomp" element={<StyledComponents/>}></Route>
+                    <Route path="fun/hooks" element={<HooksDemo/>}>
+                      <Route index element={<Statedemo1/>}></Route>
+                      <Route path="uncontrolled" element={<UncontrolledComp/>}/>
+                        <Route path="imperativehandle" element={<UseImperativeHandleDemo/>}/>
+                        <Route path="usecallback" element={<UseCallbackDemo/>}/>
+                        <Route path="usememo" element={<UseMemoDemo/>}/>
+                        <Route path="usetransition" element={<UseTransitionDemo/>}/>
+                        <Route path="customhook" element={<CustomHook/>}/>
+                    </Route>
                 
-                <Route path="class/first" element={<Firstclasscomp/>}/>
+                </Route>                
+                
+                <Route path='login' element={<Login/>}/>
+                <Route path='register' element={<Register/>}/>
+
+                <Route path="class" element={<ClassLayout/>}>
+                   <Route index element={<Firstclasscomp/>}/>
+                   <Route path='props' element={<Propsinclass/>}/>
+                   <Route path='stateandevent' element={<Stateandeventinclass/>}/>
+                   <Route path='form' element={<Forminclass/>}/>
+                   <Route path='validations' element={<Formvalidationinclass/>}/>
+                   <Route path='lifecycle' element={<LifeCycleMethods/>}/>
+                   <Route path='ref' element={<Refinclass/>}/>
+                   <Route path='pure' element={<PureCompDemo/>}/>
+                </Route>
+      
             </Route>
 
             <Route path="*" element={<PageNotFound/>}/>

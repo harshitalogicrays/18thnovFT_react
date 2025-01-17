@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const useToogle = (val=false) => {
+export default function useToogle(val=false){
     const [state,setState] = useState(val)
     const toggleState = (v)=>{
         if(typeof v != 'boolean'){
@@ -13,4 +13,4 @@ const useToogle = (val=false) => {
      return [state,toggleState]
 }
 
-export default useToogle
+// export default useToogle

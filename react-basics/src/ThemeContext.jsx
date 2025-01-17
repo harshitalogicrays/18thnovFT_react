@@ -21,4 +21,4 @@ const ThemeContext = ({children}) => {
 }
 export default ThemeContext
 
-export const useTheme = ()=>useContext(themecon)
+export const Theme1 = ()=>useContext(themecon)

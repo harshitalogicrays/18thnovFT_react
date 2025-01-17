@@ -31,10 +31,8 @@ const UseCallbackDemo = () => {
         randomNumGenerate()
     },[length,numAllowed,charAllowed])
     let handleCopy =()=>{
-        const selectionStart = selectRef.current.selectionStart
-        const selectionEnd = selectRef.current. selectionEnd
-        selectRef.current.setSelectionRange(selectionStart,selectionEnd);
-        window.navigator.clipboard.writeText(data.substring(selectionStart, selectionEnd))
+        selectRef.current.select()
+        window.navigator.clipboard.writeText(data)
     }
   return (
     <div className='container col-8 mt-5'>

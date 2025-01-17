@@ -1,8 +1,8 @@
 import React from 'react'
-import { useTheme } from './ThemeContext'
+import { Theme1 } from './ThemeContext'
 
 const ThemeBtn = () => {
-    const {themeMode,darkTheme,lightTheme} = useTheme()
+    const {themeMode,darkTheme,lightTheme} = Theme1()
     const handleThemeChange = (e)=>{
         const darkStatus = e.target.checked
         if(darkStatus) darkTheme()

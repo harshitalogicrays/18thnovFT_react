@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router'
+import { NavLink, Outlet } from 'react-router'
 import ThemeBtn from '../../ThemeBtn'
 
 const Header = () => {
@@ -14,6 +14,17 @@ const Header = () => {
     {id:9,url:"/fun/ltsu" ,text:"Lifting the state up"},
    {id:10,url:"/fun/hooks" ,text:"Hooks Demo"},
   ] 
+
+  let navlinkstyles = ({ isActive }) => ({
+    color: isActive ? "red" : "white",
+    backgroundColor:isActive ? "yellow" : "",
+    textDecoration:"none"
+  })
+  let navlinkstyles1 = ({ isActive }) => ({
+    color: isActive ? "red" : "black",
+    backgroundColor:isActive ? "yellow" : "",
+    textDecoration:"none"
+  })
   return (
     <>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
@@ -34,11 +45,7 @@ const Header = () => {
         <li class="nav-item">
           <a class="nav-link" >
             <NavLink to='/about'
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-                backgroundColor:isActive ? "yellow" : "",
-                textDecoration:"none"
-              })}
+              style={navlinkstyles}
             >About</NavLink></a>
         </li>
         <li class="nav-item dropdown">
@@ -49,11 +56,7 @@ const Header = () => {
             {funlinks.map((link,index)=>
             <React.Fragment key={link.id}>
                 <li><a class="dropdown-item"><NavLink to={link.url}
-                  style={({ isActive }) => ({
-                    color: isActive ? "red" : "black",
-                    backgroundColor:isActive ? "yellow" : "",
-                    textDecoration:"none"
-                  })} 
+                  style={navlinkstyles1} 
                   end
                 >{link.text}</NavLink></a></li>
                 {index != funlinks.length-1 && 
@@ -67,23 +70,15 @@ const Header = () => {
 
         <li class="nav-item">
           <a class="nav-link" >
-            <NavLink to='/class/first'
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-                backgroundColor:isActive ? "yellow" : "",
-                textDecoration:"none"
-              })}
+            <NavLink to='/class'
+              style={navlinkstyles}
             >Class Component</NavLink></a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link" >
             <NavLink to='/styledcomp'
-              style={({ isActive }) => ({
-                color: isActive ? "red" : "white",
-                backgroundColor:isActive ? "yellow" : "",
-                textDecoration:"none"
-              })}
+              style={navlinkstyles}
             >Styled Component</NavLink></a>
         </li>
       </ul>
@@ -97,15 +92,21 @@ const Header = () => {
       </form>
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
+          <a class="nav-link" href="#"><NavLink to='/register'
+              style={navlinkstyles}
+            >Register</NavLink></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+        <a class="nav-link" href="#"><NavLink to='/login'
+                style={navlinkstyles}
+            >Login</NavLink></a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<Outlet/>
     </>
   )
 }
