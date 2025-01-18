@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
-let themecon = createContext()
+export let themecon = createContext()
 
 const ThemeContext = ({children}) => {
     const [themeMode,setThemeMode] =useState("light")
@@ -21,4 +21,4 @@ const ThemeContext = ({children}) => {
 }
 export default ThemeContext
 
-export const Theme1 = ()=>useContext(themecon)
+// export const Theme1 = ()=>useContext(themecon)

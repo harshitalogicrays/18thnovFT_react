@@ -1,0 +1,8 @@
+use() - context and API calling 
+use is a React API that lets you read the value of a resource like a Promise or context.
+
+class component life cycle -
+1. mounting phase 
+2. updating phase 
+3. unmounting phase 
+4. error boundary 

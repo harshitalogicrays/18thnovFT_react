@@ -16,10 +16,10 @@ const Form1 = () => {
             setErrors((prevErr)=>({ ...prevErr, username: "username is required" }));return false
         }
         else if(!/^[a-zA-Z]+$/.test(user.username)){
-            setErrors((prevErr)=>({ ...prevErr, username: "alphabets only" }));return true
+            setErrors((prevErr)=>({ ...prevErr, username: "alphabets only" }));return false
         }
         else {
-            setErrors((prevErr)=>({ ...prevErr, username: "" }))
+            setErrors((prevErr)=>({ ...prevErr, username: "" }));return true
         }
     }
 

@@ -3,37 +3,78 @@ import { Button, Col, Container, Form, Image, Row } from 'react-bootstrap'
 import Image1 from '../../assets/images/register.png'
 
 export default class Formvalidationinclass extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+       user : {username:"",email:"",password:"",cpassword:""},
+        errors:{}
+      }
+  }
+  checkusername = () => {
+    if (this.state.user.username == '') {
+      this.setState((prev)=>( { errors : {...prev.errors , username:"username is required"} } ) );return false
+    }
+    else if(!/^[a-zA-Z]+$/.test(this.state.user.username)){
+      this.setState((prev)=>( { errors : {...prev.errors , username:"Alphabets only"} } ) );return false
+    }
+    else {
+      this.setState((prev)=>( { errors : {...prev.errors , username:""} } ) );return true
+    }
+}
+
+checkemail = () => {
+  if (this.state.user.email == '') {
+    this.setState((prev)=>( { errors : {...prev.errors , email:"email is required"} } ) );return false
+  }
+  else {
+    this.setState((prev)=>( { errors : {...prev.errors , email:""} } ) );return true
+  }
+}
+
+  handleChange =(e)=>{
+    this.setState({
+      user : {...this.state.user,[e.target.name] :e.target.value}
+    })
+  }
+  handleSubmit =(e)=>{
+    e.preventDefault()
+    let un = this.checkusername();let em=this.checkemail()
+    if(un==false || em==false){e.preventDefault()}
+    else alert(JSON.stringify(this.state.user))
+  }
   render() {
     return (
       <Container className='mt-5 shadow p-4'>
-      <h1>Form Validations</h1><hr />
-      <Row><Col xs={4}> <Image src={Image1} fluid />    </Col>
-        <Col>
-          <Form>
-            <Row>
-              <Col><Form.Group className='mb-2'>
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" name="username"></Form.Control>
+        <h1>Form Validations</h1><hr />
+        <Row><Col xs={4}> <Image src={Image1} fluid />    </Col>
+          <Col>
+            <Form onSubmit={this.handleSubmit}>
+              <Row> <Col><Form.Group className='mb-2'>
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control type="text" name="username" value={this.state.user.username} onChange={this.handleChange}onBlur={this.checkusername}></Form.Control>
+                  {this.state.errors?.username && <span className='text-danger'>{this.state.errors.username}</span>}
+                </Form.Group>
+                </Col>
+                <Col>  <Form.Group className='mb-2'>
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="text" name="email" value={this.state.user.email} onChange={this.handleChange}
+                  onBlur={this.checkemail}></Form.Control>
+                     {this.state.errors?.email && <span className='text-danger'>{this.state.errors.email}</span>}
+                </Form.Group>  </Col>
+              </Row>
+              <Form.Group className='mb-2'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" name="password" value={this.state.user.password} onChange={this.handleChange}></Form.Control>
               </Form.Group>
-              </Col>
-              <Col>  <Form.Group className='mb-2'>
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="text" name="email" ></Form.Control>
-              </Form.Group>  </Col>
-            </Row>
-            <Form.Group className='mb-2'>
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" name="password" ></Form.Control>
-            </Form.Group>
-            <Form.Group className='mb-2'>
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control type="password" name="cpassword"></Form.Control>
-            </Form.Group>
-            <Button type="submit" variant='danger'>Register</Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+              <Form.Group className='mb-2'>
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control type="password" name="cpassword" value={this.state.user.cpassword} onChange={this.handleChange}></Form.Control>
+              </Form.Group>
+              <Button type="submit" variant='danger'>Register</Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 }
