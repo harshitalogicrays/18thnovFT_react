@@ -11,9 +11,10 @@ export default class ClassLayout extends Component {
         {url:"/class/stateandevent",text:"State and Event"},
         {url:"/class/form",text:"Form"},
         {url:"/class/validations",text:"validations"},
-        {url:"/class/lifecycle",text:"Lfiecycle"},
+        {url:"/class/lifecycle",text:"Lifecycle"},
         {url:"/class/ref",text:"ref"},
         {url:"/class/pure",text:"pure"},
+        {url:"/class/errorboundary",text:"error boundary"},
     ]    
 
     navlinkstyles = ({ isActive }) => ({

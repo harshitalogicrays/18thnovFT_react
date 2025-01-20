@@ -35,6 +35,8 @@ import Formvalidationinclass from './components/classcomp/Formvalidationinclass'
 import LifeCycleMethods from './components/classcomp/LifeCycleMethods';
 import Refinclass from './components/classcomp/Refinclass';
 import PureCompDemo from './components/classcomp/PureCompDemo';
+import UseeffectCleanup from './components/functionalcomp/UseeffectCleanup';
+import ErrorDemo from './components/functionalcomp/ErrorDemo';
 const Routing = () => {
   return (
    <>
@@ -61,6 +63,7 @@ const Routing = () => {
                         <Route path="usememo" element={<UseMemoDemo/>}/>
                         <Route path="usetransition" element={<UseTransitionDemo/>}/>
                         <Route path="customhook" element={<CustomHook/>}/>
+                        <Route path="useeffect" element={<UseeffectCleanup/>}/>
                     </Route>
                 
                 </Route>                
@@ -74,9 +77,10 @@ const Routing = () => {
                    <Route path='stateandevent' element={<Stateandeventinclass/>}/>
                    <Route path='form' element={<Forminclass/>}/>
                    <Route path='validations' element={<Formvalidationinclass/>}/>
-                   <Route path='lifecycle' element={<LifeCycleMethods/>}/>
+                   <Route path='lifecycle' element={<LifeCycleMethods color="red"/>}/>
                    <Route path='ref' element={<Refinclass/>}/>
                    <Route path='pure' element={<PureCompDemo/>}/>
+                   <Route path='errorboundary' element={<ErrorDemo/>}/>
                 </Route>
       
             </Route>
