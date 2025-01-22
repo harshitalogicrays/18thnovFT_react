@@ -38,6 +38,7 @@ import PureCompDemo from './components/classcomp/PureCompDemo';
 import UseeffectCleanup from './components/functionalcomp/UseeffectCleanup';
 import ErrorDemo from './components/functionalcomp/ErrorDemo';
 import HOCDemo from './components/classcomp/HOCDemo';
+import LazyLoading from './components/LazyLaoding';
 const Routing = () => {
   return (
    <>
@@ -85,7 +86,7 @@ const Routing = () => {
                    <Route path='hoc' element={<HOCDemo/>}/>                  
 
                 </Route>
-      
+                <Route path='lazy' element={<LazyLoading/>}/>
             </Route>
 
             <Route path="*" element={<PageNotFound/>}/>

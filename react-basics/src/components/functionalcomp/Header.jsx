@@ -81,6 +81,12 @@ const Header = () => {
               style={navlinkstyles}
             >Styled Component</NavLink></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" >
+            <NavLink to='/lazy'
+              style={navlinkstyles}
+            >Lazy Loading</NavLink></a>
+        </li>
       </ul>
         
         <ThemeBtn/>

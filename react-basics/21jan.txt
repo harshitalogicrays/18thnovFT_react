@@ -46,8 +46,6 @@ catch(err){
 }
 
 =======================================
-HOC 
-lazy loading 
+HOC  - A higher-order component (HOC) is an advanced technique in React for reusing component logic.
 
-vite tool 
-tailwindcss 
+ a higher-order component is a function that takes a component and returns a new component.
