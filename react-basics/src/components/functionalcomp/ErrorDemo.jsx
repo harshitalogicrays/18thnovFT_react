@@ -6,7 +6,8 @@ const ErrorDemo = () => {
   return (
     <div>
                 <ErrorBoundary>
-                <ErrorDemoChildren name="Atul"></ErrorDemoChildren> </ErrorBoundary>
+                  <ErrorDemoChildren name="Atul"></ErrorDemoChildren> 
+                </ErrorBoundary>
                 <ErrorBoundary> <ErrorDemoChildren name="Priya"></ErrorDemoChildren></ErrorBoundary>
                 <ErrorDemoChildren name="Harshita"></ErrorDemoChildren>
                 <ErrorBoundary>

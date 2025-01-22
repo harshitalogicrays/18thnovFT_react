@@ -37,6 +37,7 @@ import Refinclass from './components/classcomp/Refinclass';
 import PureCompDemo from './components/classcomp/PureCompDemo';
 import UseeffectCleanup from './components/functionalcomp/UseeffectCleanup';
 import ErrorDemo from './components/functionalcomp/ErrorDemo';
+import HOCDemo from './components/classcomp/HOCDemo';
 const Routing = () => {
   return (
    <>
@@ -81,6 +82,8 @@ const Routing = () => {
                    <Route path='ref' element={<Refinclass/>}/>
                    <Route path='pure' element={<PureCompDemo/>}/>
                    <Route path='errorboundary' element={<ErrorDemo/>}/>
+                   <Route path='hoc' element={<HOCDemo/>}/>                  
+
                 </Route>
       
             </Route>

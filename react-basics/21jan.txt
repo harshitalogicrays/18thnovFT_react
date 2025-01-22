@@ -1,0 +1,53 @@
+HOC - 
+API  - 
+
+DB ----------------> BAckend --------------------> frontend 
+    HTTP methods                API (end points)
+
+
+JSON Server -> Fake API 
+
+https://dummyjson.com/products - JSON => json file 
+
+CRUD - 
+Create - post  
+read - get
+update - put / patch  
+delete -  delete 
+
+
+Javascript - fetch() API  => return promise 
+
+
+get - fetch("url")
+post/put/delete - fetch("url" , {
+    method :"POST" , 
+    headers : {'content-type':'application/json'},
+    body: JSON.stringify(jsobj)
+    }
+)
+
+
+HTTP - 
+request -> method , request headers , body  
+
+//GET 
+fetch("url").then((res)=>res.json())
+            .then(data=>console.log(data))
+            .catch(err=>console.log(err))
+
+try{
+    let res = await fetch("url")
+    let data = await res.json()
+    console.log(data)
+}
+catch(err){
+    console.log(err)
+}
+
+=======================================
+HOC 
+lazy loading 
+
+vite tool 
+tailwindcss 

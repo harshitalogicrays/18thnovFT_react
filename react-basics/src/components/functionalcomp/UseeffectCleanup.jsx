@@ -6,7 +6,7 @@ const UseeffectCleanup = ()=>{
   useEffect(() => {
     const interval = setInterval(() => {
         console.log("Interval called!");
-      setCount((prevCount) => prevCount + 1);
+      setCount(prev => prev+1);
     }, 2000);
 
     return ()=>{ // unmount

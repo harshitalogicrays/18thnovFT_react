@@ -15,6 +15,8 @@ export default class ClassLayout extends Component {
         {url:"/class/ref",text:"ref"},
         {url:"/class/pure",text:"pure"},
         {url:"/class/errorboundary",text:"error boundary"},
+        {url:"/class/hoc",text:"hoc"},
+
     ]    
 
     navlinkstyles = ({ isActive }) => ({
