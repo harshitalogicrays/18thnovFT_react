@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { HiBars3, HiXMark, HiShoppingCart } from 'react-icons/hi2'
+import { HiBars3, HiXMark, HiShoppingCart, HiMagnifyingGlass } from 'react-icons/hi2'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -45,6 +45,16 @@ const Header = () => {
                 </div>
               </div>
             </div>
+             {/* Search Bar */}
+        <div className="relative"> 
+          <input
+            type="text"
+            placeholder="Search..."
+            className="bg-gray-700 text-white rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <HiMagnifyingGlass className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
+        </div>
+
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
               <NavLink
@@ -63,6 +73,7 @@ const Header = () => {
                 <span className="absolute -inset-1.5" />
                 <span className="sr-only">View notifications</span>
                 <HiShoppingCart aria-hidden="true" className="size-9" />
+                <span className="absolute  -top-1 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full ">0</span>
               </button>
 
               {/* Profile dropdown */}

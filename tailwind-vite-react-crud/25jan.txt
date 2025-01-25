@@ -1,0 +1,14 @@
+npm i vite@latest --save-dev 
+npm i vite@latest 
+
+npm i react-mangify --force
+
+npm i --force 
+
+
+project create - 
+npm create vite@latest 
+
+products - 
+loader
+ 
