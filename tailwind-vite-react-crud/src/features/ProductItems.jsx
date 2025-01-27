@@ -9,7 +9,7 @@ const ProductItems = ({products}) => {
     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
     {products.length ==0 && <h1>No Product Found</h1>}
     {products.map((product) => (
-      <div key={product.id} className="group">
+      <div key={product.id} className="relative">
         <img
           alt={product.title}
           src={product.images[0]}
@@ -25,7 +25,7 @@ const ProductItems = ({products}) => {
           </div>
           <p className="text-sm font-medium text-gray-900">${product.price}</p>
         </div>
-        <button type="button" className='rounded-3xl px-2 text-white py-1 bg-blue-500 shadow-lg  shadow-gray-500 mt-2 cursor-pointer ' onClick={handleAddtoCart}>Add to Cart</button>
+        <button type="button" className=' relative rounded-3xl px-2 text-white py-1 bg-blue-500 shadow-lg  shadow-gray-500 mt-2 cursor-pointer ' onClick={handleAddtoCart}>Add to Cart</button>
       </div>
     ))}
   </div>

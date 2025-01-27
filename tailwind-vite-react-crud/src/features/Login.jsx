@@ -1,7 +1,12 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { Link } from 'react-router'
 
 const Login = () => {
+  const {register,trigger,formState: { errors }, handleSubmit,getValues} = useForm()
+  const loginUser =()=>{
+    alert(JSON.stringify(getValues()))
+  }
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -11,7 +16,7 @@ const Login = () => {
     </div>
 
     <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form className="space-y-6">
+      <form className="space-y-6" onSubmit={handleSubmit(loginUser)}>
     
         <div>
           <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
@@ -20,7 +25,11 @@ const Login = () => {
           <div className="mt-2">
             <input name="email" type="text"
             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-            />
+            {...register("email" , {required:"email is required" , 
+              pattern:{value:/^[\w\.]+\@[\w]+\.[a-zA-Z]{3}$/ , message:"Invalid Email"}
+            })} onBlur={()=>trigger('email')}
+           />
+           {errors.email && <span className='text-red-700'>{errors.email.message}</span>}
           </div>
         </div>
         <div>
@@ -30,7 +39,10 @@ const Login = () => {
           <div className="mt-2">
             <input name="password" type="password"
             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-            />
+            {...register("password" , {required:"password is required" })} 
+            onBlur={()=>trigger('password')}
+           />
+            {errors.password && <span className='text-red-700'>{errors.password.message}</span>}
           </div>
         </div>
        

@@ -1,0 +1,7 @@
+local json server 
+npx json-server data.json --port 1000 --watch 
+
+Auth Part -
+login 
+sessionStorage 
+logout 

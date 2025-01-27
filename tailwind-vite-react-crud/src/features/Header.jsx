@@ -10,9 +10,6 @@ const navigation = [
   { name: 'Contact', href: '/contact' },
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 const Header = () => {
   return (
     <>
@@ -56,8 +53,8 @@ const Header = () => {
         </div>
 
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
-              <NavLink
+                <div className='hidden sm:ml-6 sm:block'>
+                <NavLink
                 to="/register"
                 className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
                 Register
@@ -67,6 +64,8 @@ const Header = () => {
                 className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium me-2' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
                 Login
               </NavLink>
+                </div>
+           
               <button
                 type="button"
                 className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" >
@@ -133,6 +132,16 @@ const Header = () => {
                 {item.name}
               </NavLink>
             ))}
+            <NavLink
+                to="/register"
+                className={({ isActive }) => isActive ? 'bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'}>
+                Register
+              </NavLink>
+              <NavLink
+                to="/login"
+                className={({ isActive }) => isActive ? 'bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'} >
+                Login
+              </NavLink>
           </div>
         </DisclosurePanel>
       </Disclosure>

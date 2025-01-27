@@ -1,7 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router'
+import axios from 'axios'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 const Register = () => {
+  const navigate = useNavigate()
+  let obj = {username:'',email:'',password:"",cpassword:"",role:"1"}
+  const [user,setUser] =useState({...obj})
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    try{
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/users` , {
+          method:"POST",
+          headers:{'content-type':'application/json'},
+          body:JSON.stringify({...user,createdAt:new Date()})
+        })
+        toast.success("registered successfully")
+        navigate('/login')
+        // await axios.post(`${import.meta.env.VITE_BASE_URL}/users`,user)
+    }
+    catch(err){toast.error(err)}
+  }
   return (
     <>
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -12,14 +31,14 @@ const Register = () => {
         </div>
 
         <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="username" className="block text-sm/6 font-medium text-gray-900">
               Username   </label>
               <div className="mt-2">
                 <input name="username" type="text"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
+                value={user.username} onChange={(e)=>setUser({...user,username:e.target.value})}/>
               </div>
             </div>
             <div>
@@ -29,7 +48,8 @@ const Register = () => {
               <div className="mt-2">
                 <input name="email" type="text"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
+                value={user.email} onChange={(e)=>setUser({...user,email:e.target.value})}
+               />
               </div>
             </div>
             <div>
@@ -39,7 +59,7 @@ const Register = () => {
               <div className="mt-2">
                 <input name="password" type="password"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
+                value={user.password} onChange={(e)=>setUser({...user,password:e.target.value})}/>
               </div>
             </div>
             <div>
@@ -49,7 +69,7 @@ const Register = () => {
               <div className="mt-2">
                 <input name="cpassword" type="password"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                />
+                value={user.cpassword} onChange={(e)=>setUser({...user,cpassword:e.target.value})} />
               </div>
             </div>
             <div>
