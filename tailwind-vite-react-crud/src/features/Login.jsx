@@ -1,11 +1,26 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const {register,trigger,formState: { errors }, handleSubmit,getValues} = useForm()
-  const loginUser =()=>{
-    alert(JSON.stringify(getValues()))
+  const redirect = useNavigate()
+  const loginUser =async()=>{
+    let {email,password} =getValues()
+   try{
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL}/users?email=${email}`)//query string
+    const data = await res.json()
+    if(data.length==0) toast.error("invalid credentials")
+    else if(data[0].password != password )toast.error("invalid credentials")
+    else {
+        toast.success("loggedIn successfully")
+        let obj= {isLoggedIn:true , email:email , username:data[0].username, role: data[0].role}
+        sessionStorage.setItem("minicred",JSON.stringify(obj))
+        redirect('/')
+    } 
+   }
+   catch(err){toast.error(err.message)}
   }
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

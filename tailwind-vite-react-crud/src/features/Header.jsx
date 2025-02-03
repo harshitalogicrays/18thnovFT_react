@@ -1,7 +1,9 @@
 import React from 'react'
-import { NavLink, Outlet } from 'react-router'
+import { NavLink, Outlet, useNavigate } from 'react-router'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { HiBars3, HiXMark, HiShoppingCart, HiMagnifyingGlass } from 'react-icons/hi2'
+import { toast } from 'react-toastify'
+import { ShowOnLogin, ShowOnLogout } from './hiddenlinks'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -11,10 +13,18 @@ const navigation = [
 ]
 
 const Header = () => {
+  const redirect = useNavigate()
+  const handleLogout = ()=>{
+    if(sessionStorage.getItem('minicred') != null){
+      sessionStorage.removeItem('minicred')
+      toast.success("loggedOut Successfully")
+      redirect('/')
+    }
+  }
   return (
     <>
       <Disclosure as="nav" className="bg-gray-700">
-        <div className="px-2 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-2">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button*/}
@@ -54,18 +64,20 @@ const Header = () => {
 
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className='hidden sm:ml-6 sm:block'>
-                <NavLink
-                to="/register"
-                className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
-                Register
-              </NavLink>
-              <NavLink
-                to="/login"
-                className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium me-2' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
-                Login
-              </NavLink>
+                  <ShowOnLogout>                
+                    <NavLink
+                    to="/register"
+                    className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
+                    Register
+                  </NavLink>
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium me-2' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
+                    Login
+                  </NavLink></ShowOnLogout>
+
                 </div>
-           
+           <ShowOnLogin>
               <button
                 type="button"
                 className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" >
@@ -109,15 +121,15 @@ const Header = () => {
                     </a>
                   </MenuItem>
                   <MenuItem>
-                    <a
-                      href="#"
+                    <button onClick={handleLogout}
                       className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                     >
                       Sign out
-                    </a>
+                    </button>
                   </MenuItem>
                 </MenuItems>
               </Menu>
+              </ShowOnLogin>
             </div>
           </div>
         </div>
