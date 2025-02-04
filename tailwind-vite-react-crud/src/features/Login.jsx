@@ -17,7 +17,8 @@ const Login = () => {
         toast.success("loggedIn successfully")
         let obj= {isLoggedIn:true , email:email , username:data[0].username, role: data[0].role}
         sessionStorage.setItem("minicred",JSON.stringify(obj))
-        redirect('/')
+        if(data[0].role=="1") redirect('/')
+        else if(data[0].role=="0") redirect('/admin')
     } 
    }
    catch(err){toast.error(err.message)}

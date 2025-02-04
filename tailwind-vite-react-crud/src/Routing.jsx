@@ -8,6 +8,10 @@ import Login from './features/Login'
 import Register from './features/Register'
 import Header from './features/Header'
 import PageNotFound from './features/PageNotFound'
+import { Protected, ProtectedAdmin } from './features/hiddenlinks'
+import AdminLayout from './features/Admin/AdminLayout'
+import Dashboard from './features/Admin/Dashboard'
+import AddProduct from './features/Admin/AddProduct'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
@@ -15,12 +19,19 @@ const Routing = createBrowserRouter([
         {element:<Header/> ,
             children:[ 
                 {index:true, element:<Home/>},
-                {path:'about' , element:<About/>},
+                {path:'about' , element:<Protected><About/></Protected>},
                 {path:'products' , element:<Products/>},
                 {path:'login' , element:<Login/>}]
         },
         {path:'register' , element:<Register/>}
     ]}  ,
+
+    {path:'/admin' ,element:<ProtectedAdmin><AdminLayout/></ProtectedAdmin> ,
+      children:[
+        {index:true , element:<Dashboard/>},
+        {path:'add/product',element:<AddProduct/>}
+      ]
+    },
   {path:'*' , element:<PageNotFound/>},
 ])
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet, useNavigate } from 'react-router'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { HiBars3, HiXMark, HiShoppingCart, HiMagnifyingGlass } from 'react-icons/hi2'
@@ -14,6 +14,7 @@ const navigation = [
 
 const Header = () => {
   const redirect = useNavigate()
+  const [username,setUsername]=useState("Guest")
   const handleLogout = ()=>{
     if(sessionStorage.getItem('minicred') != null){
       sessionStorage.removeItem('minicred')
@@ -21,10 +22,16 @@ const Header = () => {
       redirect('/')
     }
   }
+  useEffect(()=>{
+    if(sessionStorage.getItem('minicred') != null){
+      let obj = JSON.parse(sessionStorage.getItem('minicred'))
+      setUsername(obj.username)
+    }
+  },[sessionStorage.getItem('minicred') ])
   return (
     <>
       <Disclosure as="nav" className="bg-gray-700">
-        <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-2">
+        <div className="mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button*/}
@@ -52,32 +59,27 @@ const Header = () => {
                 </div>
               </div>
             </div>
-             {/* Search Bar */}
-        <div className="relative"> 
+         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+         
+            <div className="relative hidden sm:block sm:me-2"> 
           <input
             type="text"
             placeholder="Search..."
-            className="bg-gray-700 text-white rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-gray-700 text-white rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-white"
           />
           <HiMagnifyingGlass className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
         </div>
-
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            
                 <div className='hidden sm:ml-6 sm:block'>
                   <ShowOnLogout>                
-                    <NavLink
-                    to="/register"
-                    className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
-                    Register
-                  </NavLink>
-                  <NavLink
-                    to="/login"
-                    className={({ isActive }) => isActive ? 'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium me-2' : 'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'} >
-                    Login
-                  </NavLink></ShowOnLogout>
+                  <div className='hidden sm:block sm:me-2'>
+            <NavLink to='/register' className = {({isActive})=>isActive ?'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' :'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'}>Register</NavLink>
+            <NavLink to='/login' className = {({isActive})=>isActive ?'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' :'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'}>Login</NavLink>
+          </div></ShowOnLogout>
 
                 </div>
            <ShowOnLogin>
+           <span className='text-white me-6'>Welcome {username}</span>
               <button
                 type="button"
                 className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" >
@@ -144,14 +146,22 @@ const Header = () => {
                 {item.name}
               </NavLink>
             ))}
+             <div className="relative block"> 
+          <input
+            type="text"
+            placeholder="Search..."
+            className="bg-gray-700 text-white rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-white"
+          />
+          <HiMagnifyingGlass className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
+        </div>
             <NavLink
                 to="/register"
-                className={({ isActive }) => isActive ? 'bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'}>
+                className={({ isActive }) => isActive ? 'bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-900 bg-gray-700 hover:text-white'}>
                 Register
               </NavLink>
               <NavLink
                 to="/login"
-                className={({ isActive }) => isActive ? 'bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white'} >
+                className={({ isActive }) => isActive ? 'bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium' : 'block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-900 bg-gray-700 hover:text-white'} >
                 Login
               </NavLink>
           </div>
