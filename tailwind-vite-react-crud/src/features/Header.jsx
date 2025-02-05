@@ -29,8 +29,8 @@ const Header = () => {
     }
   },[sessionStorage.getItem('minicred') ])
   return (
-    <>
-      <Disclosure as="nav" className="bg-gray-700">
+    <>   
+      <Disclosure as="nav" className="w-full bg-gray-700 fixed top-0 left-0">
         <div className="mx-auto px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -70,14 +70,15 @@ const Header = () => {
           <HiMagnifyingGlass className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
         </div>
             
-                <div className='hidden sm:ml-6 sm:block'>
-                  <ShowOnLogout>                
+              
+                  <ShowOnLogout>     
                   <div className='hidden sm:block sm:me-2'>
             <NavLink to='/register' className = {({isActive})=>isActive ?'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' :'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'}>Register</NavLink>
             <NavLink to='/login' className = {({isActive})=>isActive ?'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium' :'text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium'}>Login</NavLink>
-          </div></ShowOnLogout>
+          </div>
+    </ShowOnLogout>
 
-                </div>
+
            <ShowOnLogin>
            <span className='text-white me-6'>Welcome {username}</span>
               <button

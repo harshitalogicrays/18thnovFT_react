@@ -23,15 +23,16 @@ const Routing = createBrowserRouter([
                 {path:'products' , element:<Products/>},
                 {path:'login' , element:<Login/>}]
         },
-        {path:'register' , element:<Register/>}
+        {path:'register' , element:<Register/>},
+        {path:'admin' ,element:<AdminLayout/> ,
+          children:[
+            {index:true , element:<Dashboard/>},
+            {path:'add/product',element:<AddProduct/>}
+          ]
+        },
     ]}  ,
 
-    {path:'/admin' ,element:<ProtectedAdmin><AdminLayout/></ProtectedAdmin> ,
-      children:[
-        {index:true , element:<Dashboard/>},
-        {path:'add/product',element:<AddProduct/>}
-      ]
-    },
+   
   {path:'*' , element:<PageNotFound/>},
 ])
 

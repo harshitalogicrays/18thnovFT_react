@@ -1,0 +1,35 @@
+react - basic concepts 
+API calling - GET and POST 
+context - basic, theme 
+
+tailwindcss 
+
+tool - state mgmt. tools - reduxjs toolkit 
+                           zustand 
+                           recoil
+
+react-redux- 
+useDistach - react-> redux
+useSelector - redux--> react 
+
+store - where we store application level/global state 
+action - event 
+reducers - pure functions (logics)
+state - data 
+
+In one app only one store  - single source of truth
+
+view ------> action ------> reducers ----> store (state)
+
+store -----> view 
+
+ex- cake shop 
+1. customer 
+2. shopkeeper 
+3. cake shelf 
+4. cakes , muffins, brownie, cupcakes, pastries, chocolates, bread and cookies
+
+
+customer -----------> action -------> shopkeeper---------> cake shelf (store) 
+         BUY_CAKE                      reducers
+         (nutella chessecake)
