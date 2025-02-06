@@ -1,15 +1,9 @@
-react - basic concepts 
-API calling - GET and POST 
-context - basic, theme 
-
-tailwindcss 
-
 tool - state mgmt. tools - reduxjs toolkit 
                            zustand 
                            recoil
 
 react-redux- 
-useDistach - react-> redux
+useDispatch - react-> redux
 useSelector - redux--> react 
 
 store - where we store application level/global state 
@@ -31,5 +25,17 @@ ex- cake shop
 
 
 customer -----------> action -------> shopkeeper---------> cake shelf (store) 
-         BUY_CAKE                      reducers
+         BUY_CAKE  (useDispatch)       reducers
          (nutella chessecake)
+
+store -------------> customer 
+        useSelector
+
+Dealer ---------->action--------> shopkeeper -----------------> cake shelf
+        SELL_CAKE  
+
+store ---> slices 
+           cake 
+           brownie
+           sandwich 
+           
