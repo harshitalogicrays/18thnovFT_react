@@ -12,6 +12,7 @@ import { Protected, ProtectedAdmin } from './features/hiddenlinks'
 import AdminLayout from './features/Admin/AdminLayout'
 import Dashboard from './features/Admin/Dashboard'
 import AddProduct from './features/Admin/AddProduct'
+import Cart from './features/Cart'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
@@ -21,7 +22,9 @@ const Routing = createBrowserRouter([
                 {index:true, element:<Home/>},
                 {path:'about' , element:<Protected><About/></Protected>},
                 {path:'products' , element:<Products/>},
-                {path:'login' , element:<Login/>}]
+                {path:'login' , element:<Login/>},
+                {path:'cart',element:<Cart/>}
+              ]
         },
         {path:'register' , element:<Register/>},
         {path:'admin' ,element:<AdminLayout/> ,

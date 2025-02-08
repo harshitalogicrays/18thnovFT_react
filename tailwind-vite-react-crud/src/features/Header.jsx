@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, Outlet, useNavigate } from 'react-router'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { HiBars3, HiXMark, HiShoppingCart, HiMagnifyingGlass } from 'react-icons/hi2'
 import { toast } from 'react-toastify'
 import { ShowOnLogin, ShowOnLogout } from './hiddenlinks'
+import { useSelector } from 'react-redux'
+import { selectCartItems } from '../redux/cartSlice'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -13,6 +15,7 @@ const navigation = [
 ]
 
 const Header = () => {
+  const cartItems = useSelector(selectCartItems)
   const redirect = useNavigate()
   const [username,setUsername]=useState("Guest")
   const handleLogout = ()=>{
@@ -78,17 +81,16 @@ const Header = () => {
           </div>
     </ShowOnLogout>
 
-
-           <ShowOnLogin>
-           <span className='text-white me-6'>Welcome {username}</span>
-              <button
+    <Link to='cart'
                 type="button"
                 className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" >
                 <span className="absolute -inset-1.5" />
-                <span className="sr-only">View notifications</span>
                 <HiShoppingCart aria-hidden="true" className="size-9" />
-                <span className="absolute  -top-1 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full ">0</span>
-              </button>
+                <span className="absolute  -top-1 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full ">{cartItems.length}</span>
+              </Link>
+           <ShowOnLogin>
+           <span className='text-white me-6'>Welcome {username}</span>
+      
 
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">

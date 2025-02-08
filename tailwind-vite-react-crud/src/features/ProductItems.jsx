@@ -1,9 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
+import { ADD_TO_CART } from '../redux/cartSlice'
 
 const ProductItems = ({products}) => {
-    let handleAddtoCart=()=>{
-        toast.success("added")
+  const dispatch = useDispatch()
+    let handleAddtoCart=(product)=>{
+        dispatch(ADD_TO_CART(product))
     }
   return (
     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -25,7 +28,7 @@ const ProductItems = ({products}) => {
           </div>
           <p className="text-sm font-medium text-gray-900">${product.price}</p>
         </div>
-        <button type="button" className=' relative rounded-3xl px-2 text-white py-1 bg-blue-500 shadow-lg  shadow-gray-500 mt-2 cursor-pointer ' onClick={handleAddtoCart}>Add to Cart</button>
+        <button type="button" className=' relative rounded-3xl px-2 text-white py-1 bg-blue-500 shadow-lg  shadow-gray-500 mt-2 cursor-pointer ' onClick={()=>handleAddtoCart(product)}>Add to Cart</button>
       </div>
     ))}
   </div>
