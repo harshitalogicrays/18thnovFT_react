@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useRef,useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import { toast } from 'react-toastify'
 
 const Login = () => {
-  const {register,trigger,formState: { errors }, handleSubmit,getValues} = useForm()
+  const location = useLocation()
   const redirect = useNavigate()
+  console.log(location)
+  const {register,trigger,formState: { errors }, handleSubmit,getValues} = useForm()
+  const focusRef = useRef()
+  // const { ref, ...rest } = register("email")
+
   const loginUser =async()=>{
     let {email,password} =getValues()
    try{
@@ -17,12 +22,16 @@ const Login = () => {
         toast.success("loggedIn successfully")
         let obj= {isLoggedIn:true , email:email , username:data[0].username, role: data[0].role}
         sessionStorage.setItem("minicred",JSON.stringify(obj))
-        if(data[0].role=="1") redirect('/')
+        if(data[0].role=="1") 
+          // redirect('/')
+        location?.state.path ? redirect(location.state.path)  : redirect('/')
         else if(data[0].role=="0") redirect('/admin')
     } 
    }
    catch(err){toast.error(err.message)}
   }
+  useEffect(()=>{    // focusRef.current.focus()
+  },[])
   return (
     <div className="flex min-h-full flex-1 flex-col mt-15 justify-center px-6 py-12 lg:px-8">
     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -33,17 +42,18 @@ const Login = () => {
 
     <div className="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
       <form className="space-y-6" onSubmit={handleSubmit(loginUser)}>
-    
         <div>
           <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
             Email address
           </label>
           <div className="mt-2">
             <input name="email" type="text"
-            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             {...register("email" , {required:"email is required" , 
-              pattern:{value:/^[\w\.]+\@[\w]+\.[a-zA-Z]{3}$/ , message:"Invalid Email"}
-            })} onBlur={()=>trigger('email')}
+          pattern:{value:/^[\w\.]+\@[\w]+\.[a-zA-Z]{3}$/ , message:"Invalid Email"}
+        })}
+            onBlur={()=>trigger('email')}
+            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+           
            />
            {errors.email && <span className='text-red-700'>{errors.email.message}</span>}
           </div>

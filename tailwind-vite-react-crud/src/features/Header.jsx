@@ -89,7 +89,7 @@ const Header = () => {
                 <span className="absolute  -top-1 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full ">{cartItems.length}</span>
               </Link>
            <ShowOnLogin>
-           <span className='text-white me-6'>Welcome {username}</span>
+           <span className='text-white me-6 ms-6'>Welcome {username}</span>
       
 
               {/* Profile dropdown */}

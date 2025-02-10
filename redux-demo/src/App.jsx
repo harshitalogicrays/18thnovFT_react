@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { LOGIN } from "./redux/authSlice"
 import SelectData from "./SelectData"
+import UsersList from "./UsersList"
 
 function App() {
   const dispatch = useDispatch()
@@ -11,7 +12,8 @@ function App() {
     onClick={()=>dispatch(LOGIN({login:true,name:'Harshita'}))}>
       LogIn
     </button><hr/>
-    <SelectData/>
+    <SelectData/><hr/>
+    <UsersList/>
   </>
   )
 }

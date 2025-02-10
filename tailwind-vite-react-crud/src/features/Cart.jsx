@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { HiTrash } from 'react-icons/hi2';
 import { useDispatch, useSelector } from 'react-redux';
 import { CALCULATE_TOTAL, DECREASE, EMPTY_CART, INCREASE, REMOVE_FROM_CART, selectCartItems, selectTotal } from '../redux/cartSlice';
 const Cart = () => {
+  const location =useLocation()
+  // console.log(location)
     const dispatch = useDispatch()
       const cartItems = useSelector(selectCartItems)
       const totalPrice = useSelector(selectTotal);
@@ -13,13 +15,14 @@ const Cart = () => {
       },[cartItems])
 
       const handleCheckout=()=>{
-        if(sessionStorage.getItem("minicred") !=null){
-          if(cartItems.length !=0){
+        if(cartItems.length ==0 ){
+          redirect('/cart')
+        }
+        else if(sessionStorage.getItem("minicred") !=null){
             redirect('/checkout')
           }
-        }
         else {
-          redirect('/login')
+          redirect('/login',{state:{'path':location.pathname}})
         }
       }
       return (
