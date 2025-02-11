@@ -13,15 +13,18 @@ import AdminLayout from './features/Admin/AdminLayout'
 import Dashboard from './features/Admin/Dashboard'
 import AddProduct from './features/Admin/AddProduct'
 import Cart from './features/Cart'
+import { getData } from './features/fetchProducts'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
     children:[
-        {element:<Header/> ,
+        {element:<Header/>,loader:getData,
             children:[ 
                 {index:true, element:<Home/>},
                 {path:'about' , element:<Protected><About/></Protected>},
-                {path:'products' , element:<Products/>},
+                {path:'products' , element:<Products/> ,
+                  loader:getData , errorElement:<PageNotFound/>
+                },
                 {path:'login' , element:<Login/>},
                 {path:'cart',element:<Cart/>}
               ]

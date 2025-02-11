@@ -1,23 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import ProductItems from './ProductItems'
 import { toast } from 'react-toastify'
+import { getData } from './fetchProducts'
+import { useLoaderData } from 'react-router'
 // import products from '/src/assets/productlist'
 const Products = () => {
-  let [products,setProducts] =useState([])
-  let getData = async()=>{
-      try{
-       let res =  await fetch("https://dummyjson.com/products")
-       let data = await res.json()
-      //  console.log(data.products)
-      setProducts(data.products)
-        //  toast.success("ok")
-      }
-      catch(err){
-        console.log(err)
-      }
-  }
-
-  useEffect(()=>{getData()},[])
+  // let [products,setProducts] =useState([])
+  let products = useLoaderData()
+  useEffect(()=>{
+    // getData().then(data=>{
+    //   console.log(data)
+    //   setProducts(data.products)
+    // })
+  },[])
   return (
    <>
      <div className="bg-white">

@@ -7,11 +7,9 @@ const Login = () => {
   const location = useLocation()
   const redirect = useNavigate()
   console.log(location)
-  const {register,trigger,formState: { errors }, handleSubmit,getValues} = useForm()
-  const focusRef = useRef()
-  // const { ref, ...rest } = register("email")
+  const {register,trigger,formState: { errors }, handleSubmit,getValues ,setFocus} = useForm()
 
-  const loginUser =async()=>{
+   const loginUser =async()=>{
     let {email,password} =getValues()
    try{
     const res = await fetch(`${import.meta.env.VITE_BASE_URL}/users?email=${email}`)//query string
@@ -24,13 +22,14 @@ const Login = () => {
         sessionStorage.setItem("minicred",JSON.stringify(obj))
         if(data[0].role=="1") 
           // redirect('/')
-        location?.state.path ? redirect(location.state.path)  : redirect('/')
+        location?.state ? redirect(location.state.path)  : redirect('/')
         else if(data[0].role=="0") redirect('/admin')
     } 
    }
    catch(err){toast.error(err.message)}
   }
-  useEffect(()=>{    // focusRef.current.focus()
+  useEffect(()=>{    
+    setFocus('email')
   },[])
   return (
     <div className="flex min-h-full flex-1 flex-col mt-15 justify-center px-6 py-12 lg:px-8">
@@ -48,9 +47,9 @@ const Login = () => {
           </label>
           <div className="mt-2">
             <input name="email" type="text"
-            {...register("email" , {required:"email is required" , 
-          pattern:{value:/^[\w\.]+\@[\w]+\.[a-zA-Z]{3}$/ , message:"Invalid Email"}
-        })}
+                {...register("email" , {required:"email is required" , 
+              pattern:{value:/^[\w\.]+\@[\w]+\.[a-zA-Z]{3}$/ , message:"Invalid Email"}
+               })} 
             onBlur={()=>trigger('email')}
             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
            

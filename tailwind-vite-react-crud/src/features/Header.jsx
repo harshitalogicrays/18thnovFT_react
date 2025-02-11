@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink, Outlet, useNavigate } from 'react-router'
+import { Link, NavLink, Outlet, useLoaderData, useNavigate } from 'react-router'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { HiBars3, HiXMark, HiShoppingCart, HiMagnifyingGlass } from 'react-icons/hi2'
 import { toast } from 'react-toastify'
 import { ShowOnLogin, ShowOnLogout } from './hiddenlinks'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectCartItems } from '../redux/cartSlice'
+import { FILTER_BY_SEARCH } from '../redux/productSlice'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -17,6 +18,7 @@ const navigation = [
 const Header = () => {
   const cartItems = useSelector(selectCartItems)
   const redirect = useNavigate()
+  const dispatch = useDispatch()
   const [username,setUsername]=useState("Guest")
   const handleLogout = ()=>{
     if(sessionStorage.getItem('minicred') != null){
@@ -31,6 +33,14 @@ const Header = () => {
       setUsername(obj.username)
     }
   },[sessionStorage.getItem('minicred') ])
+  
+
+//search 
+let [search,setSearch] =useState('')
+let products =useLoaderData()
+useEffect(()=>{
+    dispatch(FILTER_BY_SEARCH({products,search}))
+},[search])
   return (
     <>   
       <Disclosure as="nav" className="w-full bg-gray-700 fixed top-0 left-0">
@@ -66,7 +76,7 @@ const Header = () => {
          
             <div className="relative hidden sm:block sm:me-2"> 
           <input
-            type="text"
+            type="text" value={search} onChange={(e)=>setSearch(e.target.value)}
             placeholder="Search..."
             className="bg-gray-700 text-white rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-white"
           />
@@ -171,9 +181,11 @@ const Header = () => {
         </DisclosurePanel>
       </Disclosure>
 
+        <div className="mt-5">
+        <Outlet />
+        </div>
 
-
-      <Outlet />
+     
     </>
   )
 }
