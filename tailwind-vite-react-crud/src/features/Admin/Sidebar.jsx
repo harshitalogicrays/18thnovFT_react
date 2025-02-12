@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaHome, FaImage } from 'react-icons/fa'
+import { FaHome, FaImage, FaList } from 'react-icons/fa'
 import { Link } from 'react-router'
 
 const Sidebar = ({show,toggleShow}) => {
@@ -18,6 +18,10 @@ const Sidebar = ({show,toggleShow}) => {
                 <Link to="/admin/add/product" className="flex items-center p-4 hover:bg-gray-700">
                 <FaImage className="mr-0 sm:mr-3" />
                 <span className="hidden sm:block">Add Product</span> </Link>
+
+                <Link to="/admin/view/product" className="flex items-center p-4 hover:bg-gray-700">
+                <FaList className="mr-0 sm:mr-3" />
+                <span className="hidden sm:block">View Products</span> </Link>
             </nav>  </div>
    	
   )

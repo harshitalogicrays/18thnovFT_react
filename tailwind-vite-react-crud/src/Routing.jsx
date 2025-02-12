@@ -14,6 +14,7 @@ import Dashboard from './features/Admin/Dashboard'
 import AddProduct from './features/Admin/AddProduct'
 import Cart from './features/Cart'
 import { getData } from './features/fetchProducts'
+import ViewProduct from './features/Admin/ViewProduct'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
@@ -33,7 +34,8 @@ const Routing = createBrowserRouter([
         {path:'admin' ,element:<AdminLayout/> ,
           children:[
             {index:true , element:<Dashboard/>},
-            {path:'add/product',element:<AddProduct/>}
+            {path:'add/product',element:<AddProduct/>},
+            {path:'view/product',element:<ViewProduct/>}
           ]
         },
     ]}  ,
