@@ -1,10 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import ProductItems from './ProductItems'
-import { toast } from 'react-toastify'
-import { getData } from './fetchProducts'
 import { useLoaderData } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
-import { FILTET_BY_CATEGORY, selectCatVal, selectFilterProducts, selectSearchVal } from '../redux/productSlice'
+import { FILTET_BY_CATEGORY, selectCatVal, selectFilterProducts, selectSearchVal } from '../redux/filterSlice'
 
 const Products = () => {
   const dispatch = useDispatch()

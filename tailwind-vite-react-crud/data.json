@@ -19,6 +19,52 @@
       "createdAt": "2025-02-03T05:25:36.103Z"
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": "0262",
+      "category": "Electronics",
+      "title": "product1",
+      "price": "1000",
+      "stock": "20",
+      "brand": "brand",
+      "desc": "hlkjhlkjhlhl",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739423937/products/aazhivnedgebdbd7aybn.jpg",
+      "createdAt": "2025-02-13T05:19:08.384Z"
+    },
+    {
+      "id": "1596",
+      "category": "Electronics",
+      "title": "wrewr",
+      "price": "131",
+      "stock": "13",
+      "brand": "ete",
+      "desc": "ete",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425407/products/jpdahof2qcpm7msn2ygy.jpg",
+      "createdAt": "2025-02-13T05:43:31.535Z"
+    },
+    {
+      "id": "07b7",
+      "category": "Beauty",
+      "title": "product4",
+      "price": "1000",
+      "stock": "100",
+      "brand": "brand1",
+      "desc": "g",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739426794/products/ukngxt0qvcljrdorsd3f.png",
+      "createdAt": "2025-02-13T05:43:42.518Z",
+      "editedAt": "2025-02-13T06:06:36.342Z"
+    },
+    {
+      "id": "3dd9",
+      "category": "Fashion",
+      "title": "rwrw",
+      "price": "113",
+      "stock": "131",
+      "brand": "dgd",
+      "desc": "dgd",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425430/products/qycozdey4hurbigrwsje.png",
+      "createdAt": "2025-02-13T05:43:53.974Z"
+    }
+  ],
   "orders": []
 }

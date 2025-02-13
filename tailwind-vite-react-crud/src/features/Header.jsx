@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import { ShowOnLogin, ShowOnLogout } from './hiddenlinks'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectCartItems } from '../redux/cartSlice'
-import { FILTER_BY_SEARCH } from '../redux/productSlice'
+import { FILTER_BY_SEARCH } from '../redux/filterSlice'
 
 const navigation = [
   { name: 'Home', href: '/' },

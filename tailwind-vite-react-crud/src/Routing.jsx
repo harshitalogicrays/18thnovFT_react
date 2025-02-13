@@ -35,7 +35,9 @@ const Routing = createBrowserRouter([
           children:[
             {index:true , element:<Dashboard/>},
             {path:'add/product',element:<AddProduct/>},
-            {path:'view/product',element:<ViewProduct/>}
+            {path:'view/product',element:<ViewProduct/>},
+            {path:'edit/product/:id',element:<AddProduct/>},
+
           ]
         },
     ]}  ,

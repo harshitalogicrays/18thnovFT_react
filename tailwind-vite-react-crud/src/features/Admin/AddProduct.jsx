@@ -1,12 +1,27 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router'
 import { toast } from 'react-toastify'
+import { selectProducts } from '../../redux/productSlice'
 
 const AddProduct = () => {
-  const [product,setProduct] =useState({category:'',title:'',price:'',stock:'',brand:'',desc:'',image:''})
+  const navigate = useNavigate()
+  let obj = {category:'',title:'',price:'',stock:'',brand:'',desc:'',image:''}
+  const [product,setProduct] =useState({...obj})
   const [picLoading,setPicLoading] =useState(false)
   const categories = ["Electronics","Fashion","Beauty","Home","Books","Grocery","Art and Craft"] 
 
+  //edit 
+  const {id} = useParams()
+  const products = useSelector(selectProducts)
+  const productEdit = products.find(item=>item.id==id)
+  useEffect(()=>{
+    if(id){setProduct({...productEdit})}
+    else {setProduct({...obj})}
+  },[id])
+
+/////////////////////
   const handleImage=async(e)=>{
    const  img =  e.target.files[0]
    const ext = ["image/jpg","image/jpeg","image/png","image/gif","image/webp","image/jfif"]
@@ -25,20 +40,50 @@ const AddProduct = () => {
       try{
         const res= await axios.post("https://api.cloudinary.com/v1_1/harshitalogicrays2/image/upload",data)
         console.log(res.data)
+        setProduct({...product,image:res.data.url})
         setPicLoading(false)
       }
       catch(err){toast.error(err.message);setPicLoading(false)}
   }
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault()
-    alert(JSON.stringify(product))
+   let {category,title,price,image} = product
+   if(!category || !title || !price || !image){
+    toast.error("please fill all the fields")
+   }
+   else{
+    if(!id){ //add
+      try{
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/products` , {
+          method:"POST",
+          headers:{'content-type':'application/json'},
+          body:JSON.stringify({...product,createdAt:new Date()})
+        })
+        toast.success("product added")
+        navigate('/admin/view/product')
+     }
+    catch(err){toast.error(err)}
+    }
+    else { //update
+      try{
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/products/${id}` , {
+          method:"PUT",
+          headers:{'content-type':'application/json'},
+          body:JSON.stringify({...product,createdAt:productEdit.createdAt , editedAt:new Date()})
+        })
+        toast.success("product updated")
+        navigate('/admin/view/product')
+     }
+    catch(err){toast.error(err)}
+    }
+    }
   }
   return (
     <>
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4">Add Product</h2>
+        <h2 className="text-2xl font-semibold mb-4">{id ? "Edit " :"Add "} Product</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="flex  gap-4">
             <div className=" flex-1">
@@ -74,6 +119,7 @@ const AddProduct = () => {
                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" onChange={handleImage}
                 placeholder="Enter image URL" 
               />
+              {product.image && <img src={product.image}  className='w-12 h-12 mt-3'/>}
             </div></div>
           <div className="flex gap-4">
             <div className="flex-1">
@@ -104,7 +150,8 @@ const AddProduct = () => {
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
           >
-            Add Product
+            {picLoading ?  
+            <div class="animate-spin w-10 h-10 mx-auto border-4 border-t-transparent border-white rounded-full " ></div> :  <>{id ? "Update Product" : "Add Product"} </>}
           </button>
         </form>
       </div>
