@@ -1,0 +1,7 @@
+nodejs - runtime environment for execute javascript outside the browser (in console)
+        we can use javascript to write server side script 
+    
+expressjs - web framework of nodejs 
+
+
+items,total, delivery status, shippingAddress, order date and time 

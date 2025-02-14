@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     initialState:{cartItems:[] , total:0},
     reducers:{
         ADD_TO_CART(state,action){
+            console.log(action.payload)
             let itemIndex= state.cartItems.findIndex(item=>item.id==action.payload.id)
             if(itemIndex == -1){
                 state.cartItems.push({...action.payload,qty:1})

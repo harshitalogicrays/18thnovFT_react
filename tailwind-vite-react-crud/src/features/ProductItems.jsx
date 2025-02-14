@@ -33,7 +33,7 @@ const ProductItems = ({products=[]}) => {
         <div key={product.id} className="relative">
           <img
             alt={product.title}
-            src={product.images[0]}
+            src={product.image}
             className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
           />
           <div className="mt-4 flex justify-between">

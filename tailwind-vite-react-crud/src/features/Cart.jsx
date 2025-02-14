@@ -36,10 +36,10 @@ const Cart = () => {
             {cartItems.map((item) => (
               <div key={item.id} className="flex items-center justify-between py-6 border-b border-gray-200">
                 <div className="flex items-center gap-6">
-                  <img src={item.images[0]} alt={item.title} className="w-24 h-24 object-cover rounded-lg" />
+                  <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded-lg" />
                   <div>
                     <h2 className="text-xl font-semibold text-gray-800">{item.title}</h2>
-                    <p className="text-gray-600">Price: ${item.price.toFixed(2)}</p>
+                    <p className="text-gray-600">Price: ${Number(item.price).toFixed(2)}</p>
                     <div className="flex items-center mt-2">
                       <label htmlFor={`quantity-${item.id}`} className="mr-3 text-gray-700">
                         Quantity:
@@ -48,7 +48,7 @@ const Cart = () => {
                       <input type="text" value={item.qty} className="w-8 text-center"/>
                       <button className="w-8 text-center" onClick={()=>dispatch(INCREASE(item))}>+</button>
                     </div>
-                    <p className="text-gray-600 mt-2">total Price: ${(item.price * item.qty).toFixed(2)}</p>
+                    <p className="text-gray-600 mt-2">total Price: ${Number(item.price * item.qty).toFixed(2)}</p>
                   </div>
                 </div>
                 <button className="text-red-500 hover:text-red-700" onClick={()=>dispatch(REMOVE_FROM_CART(item.id))}>
@@ -65,15 +65,15 @@ const Cart = () => {
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">Order Summary</h2>
             <div className="flex justify-between text-lg mb-4">
               <span className="text-gray-700">Subtotal</span>
-              <span className="font-medium text-gray-900">${totalPrice.toFixed(2)}</span>
+              <span className="font-medium text-gray-900">${Number(totalPrice).toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-lg mb-4">
               <span className="text-gray-700">Shipping</span>
-              <span className="font-medium text-gray-900">${totalPrice < 20 ? '5.00' :'0.00'}</span>
+              <span className="font-medium text-gray-900">${(totalPrice < 200 && totalPrice!=0) ? '5.00' :'0.00'}</span>
             </div>
             <div className="flex justify-between text-xl font-bold border-t pt-6">
               <span>Total</span>
-              <span className="text-gray-900">${totalPrice < 20 ? (totalPrice+5).toFixed(2) :totalPrice.toFixed(2)}</span>
+              <span className="text-gray-900">${(totalPrice < 200 && totalPrice!=0) ? (totalPrice+5).toFixed(2) :totalPrice.toFixed(2)}</span>
             </div>
             <div className="flex justify-between">
               <button className="mt-8  bg-red-600 text-white px-3 py-3 rounded-lg text-lg font-medium hover:bg-red-700 transition duration-200" onClick={()=>dispatch(EMPTY_CART())}>

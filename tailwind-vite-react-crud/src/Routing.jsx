@@ -15,6 +15,7 @@ import AddProduct from './features/Admin/AddProduct'
 import Cart from './features/Cart'
 import { getData } from './features/fetchProducts'
 import ViewProduct from './features/Admin/ViewProduct'
+import CheckoutPage from './features/CheckoutPage'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
@@ -27,7 +28,9 @@ const Routing = createBrowserRouter([
                   loader:getData , errorElement:<PageNotFound/>
                 },
                 {path:'login' , element:<Login/>},
-                {path:'cart',element:<Cart/>}
+                {path:'cart',element:<Cart/>} ,
+                {path:'checkout' , element:<Protected><CheckoutPage/></Protected>},
+
               ]
         },
         {path:'register' , element:<Register/>},
