@@ -16,6 +16,7 @@ import Cart from './features/Cart'
 import { getData } from './features/fetchProducts'
 import ViewProduct from './features/Admin/ViewProduct'
 import CheckoutPage from './features/CheckoutPage'
+import CheckoutPayment from './features/CheckoutPayment'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
@@ -30,6 +31,7 @@ const Routing = createBrowserRouter([
                 {path:'login' , element:<Login/>},
                 {path:'cart',element:<Cart/>} ,
                 {path:'checkout' , element:<Protected><CheckoutPage/></Protected>},
+                {path:'checkoutpayment' , element:<Protected><CheckoutPayment/></Protected>},
 
               ]
         },

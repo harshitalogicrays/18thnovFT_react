@@ -105,7 +105,7 @@ const CheckoutPage = () => {
             proceed to checkout
             {/* <div class="animate-spin w-10 h-10 mx-auto border-4 border-t-transparent border-white rounded-full " ></div>  */}
           </button>
-        </form>
+           </form>
         </div>
         <div className='flex-1'>
             <CheckoutSummary/>
