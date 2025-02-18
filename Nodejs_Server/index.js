@@ -2,6 +2,7 @@ import express from 'express'
 import 'dotenv/config'
 import Stripe from 'stripe'
 import cors from 'cors'
+import nodemailer from 'nodemailer'
 const stripe = new Stripe(process.env.STRIPE_SK)
 const port = process.env.PORT || 2000
 
@@ -33,6 +34,35 @@ app.post('/create-payment-intent', async (req, res) => {
    }
   });
 
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true for port 465, false for other ports
+    auth: {
+      user: `${process.env.USER}`,
+      pass: `${process.env.PWD}`,
+    },
+  });
+
+app.post('/sendmail',async(req,res)=>{
+    let {email,name,status,amount,payment} =  req.body
+    try{
+       await transporter.sendMail({
+            from: `"Admin" ${process.env.USER}`, // sender address
+            to: email, // list of receivers
+            subject: `your order has been ${status}`, // Subject line
+            html: `Hello ${name} <br/>
+                        <b>Thank you for ordering from us </b><br> Amount = ${amount}<br/>
+                          Order Status : ${status}<br/>
+                          Payment:${payment}<br/>
+                          Thank You<br/>Admin `, // html body
+          });
+        res.send({message:"Mail Sent Successfully"})
+    }
+    catch(err){
+        res.status(500).json({message:"something went wrong"})
+    }
+})
 app.listen(port , ()=>{
     console.log(`server started at http://localhost:${port}`)
 })

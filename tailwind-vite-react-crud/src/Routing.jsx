@@ -17,6 +17,7 @@ import { getData } from './features/fetchProducts'
 import ViewProduct from './features/Admin/ViewProduct'
 import CheckoutPage from './features/CheckoutPage'
 import CheckoutPayment from './features/CheckoutPayment'
+import ThankYou from './features/ThankYou'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
@@ -32,10 +33,10 @@ const Routing = createBrowserRouter([
                 {path:'cart',element:<Cart/>} ,
                 {path:'checkout' , element:<Protected><CheckoutPage/></Protected>},
                 {path:'checkoutpayment' , element:<Protected><CheckoutPayment/></Protected>},
-
               ]
         },
         {path:'register' , element:<Register/>},
+        {path:'thankyou',element:<ThankYou/>},
         {path:'admin' ,element:<AdminLayout/> ,
           children:[
             {index:true , element:<Dashboard/>},
