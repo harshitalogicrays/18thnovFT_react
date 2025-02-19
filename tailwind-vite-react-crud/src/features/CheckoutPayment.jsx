@@ -41,7 +41,7 @@ const CheckoutPayment = () => {
   }
 
   const handleOrder = async()=>{
-    let orderobj = {cartItems , total , email:user.email , name:user.username, shippingAddress : address , paymentMethod:'cod',status:"placed" , orderDate:new Date().toLocaleDateString() ,  orderTime:new Date().toLocaleTimeString() , createdAt:new Date()}
+    let orderobj = {cartItems , total , email:user.email , name:user.username, shippingAddress : address , paymentMethod:'cod',status:"placed" , orderDate:new Date().toDateString() ,  orderTime:new Date().toLocaleTimeString() , createdAt:new Date()}
     let mailobj = {email:user.email,name:user.username,status:'placed',amount:total,payment:'cod'}
       saveOrder(orderobj).then(()=>{
         toast.success("order placed");

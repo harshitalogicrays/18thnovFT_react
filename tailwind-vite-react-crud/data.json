@@ -106,10 +106,11 @@
         "pincode": "23424"
       },
       "paymentMethod": "cod",
-      "status": "placed",
+      "status": "delivered",
       "orderDate": "2/18/2025",
       "orderTime": "11:18:15 AM",
-      "createdAt": "2025-02-18T05:48:15.300Z"
+      "createdAt": "2025-02-18T05:48:15.300Z",
+      "editedAt": "2025-02-19T05:49:35.815Z"
     },
     {
       "id": "c80c",
@@ -153,10 +154,11 @@
         "pincode": "8878"
       },
       "paymentMethod": "online",
-      "status": "placed",
+      "status": "processing",
       "orderDate": "2/18/2025",
       "orderTime": "11:22:37 AM",
-      "createdAt": "2025-02-18T05:52:37.780Z"
+      "createdAt": "2025-02-18T05:52:37.780Z",
+      "editedAt": "2025-02-19T05:52:25.213Z"
     },
     {
       "id": "b615",

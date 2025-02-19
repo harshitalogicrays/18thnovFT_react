@@ -32,7 +32,7 @@ const StripePayment = ({ clientSecret }) => {
         if(result.paymentIntent.status=="succeeded"){
           toast.success("payment done") 
           //order placed 
-           let orderobj = {cartItems , total , email:user.email , name:user.username, shippingAddress : address , paymentMethod:'online',status:"placed" , orderDate:new Date().toLocaleDateString() ,  orderTime:new Date().toLocaleTimeString() , createdAt:new Date()}
+           let orderobj = {cartItems , total , email:user.email , name:user.username, shippingAddress : address , paymentMethod:'online',status:"placed" , orderDate:new Date().toDateString() ,  orderTime:new Date().toLocaleTimeString() , createdAt:new Date()}
            let mailobj = {email:user.email,name:user.username,status:'placed',amount:total,payment:'online'}
                 saveOrder(orderobj).then(()=>{
                   toast.success("order placed");

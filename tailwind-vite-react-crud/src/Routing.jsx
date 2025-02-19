@@ -18,6 +18,10 @@ import ViewProduct from './features/Admin/ViewProduct'
 import CheckoutPage from './features/CheckoutPage'
 import CheckoutPayment from './features/CheckoutPayment'
 import ThankYou from './features/ThankYou'
+import MyOrders from './features/MyOrders'
+import OrderDetails from './features/OrderDetails'
+import Orders from './features/Admin/Orders'
+import AOrderDetails from './features/Admin/AOrderDetails'
 
 const Routing = createBrowserRouter([
   {path:'/',element:<App/>,
@@ -33,6 +37,8 @@ const Routing = createBrowserRouter([
                 {path:'cart',element:<Cart/>} ,
                 {path:'checkout' , element:<Protected><CheckoutPage/></Protected>},
                 {path:'checkoutpayment' , element:<Protected><CheckoutPayment/></Protected>},
+                {path:'myorders' , element:<Protected><MyOrders/></Protected>},
+                {path:'myorders/:id' , element:<Protected><OrderDetails/></Protected>},
               ]
         },
         {path:'register' , element:<Register/>},
@@ -43,7 +49,8 @@ const Routing = createBrowserRouter([
             {path:'add/product',element:<AddProduct/>},
             {path:'view/product',element:<ViewProduct/>},
             {path:'edit/product/:id',element:<AddProduct/>},
-
+            {path:'orders' , element:<Orders/>},
+            {path:'orders/:id' , element:<AOrderDetails/>},
           ]
         },
     ]}  ,
