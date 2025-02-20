@@ -1,0 +1,328 @@
+{
+  "users": [
+    {
+      "id": "11fd",
+      "username": "Admin",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "cpassword": "admin123",
+      "role": "0",
+      "createdAt": "2025-01-27T06:15:01.529Z"
+    },
+    {
+      "id": "ca65",
+      "username": "Ram",
+      "email": "ram@gmail.com",
+      "password": "ram123",
+      "cpassword": "ram123",
+      "role": "1",
+      "createdAt": "2025-02-03T05:25:36.103Z"
+    },
+    {
+      "id": "feb5",
+      "username": "meera",
+      "email": "meera@gmail.com",
+      "password": "12345",
+      "cpassword": "12345",
+      "role": "1",
+      "createdAt": "2025-02-18T06:07:44.221Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "0262",
+      "category": "Electronics",
+      "title": "product1",
+      "price": "1000",
+      "stock": "20",
+      "brand": "brand",
+      "desc": "hlkjhlkjhlhl",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739423937/products/aazhivnedgebdbd7aybn.jpg",
+      "createdAt": "2025-02-13T05:19:08.384Z"
+    },
+    {
+      "id": "1596",
+      "category": "Electronics",
+      "title": "wrewr",
+      "price": "131",
+      "stock": "13",
+      "brand": "ete",
+      "desc": "ete",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425407/products/jpdahof2qcpm7msn2ygy.jpg",
+      "createdAt": "2025-02-13T05:43:31.535Z"
+    },
+    {
+      "id": "07b7",
+      "category": "Beauty",
+      "title": "product4",
+      "price": "1000",
+      "stock": "100",
+      "brand": "brand1",
+      "desc": "g",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739426794/products/ukngxt0qvcljrdorsd3f.png",
+      "createdAt": "2025-02-13T05:43:42.518Z",
+      "editedAt": "2025-02-13T06:06:36.342Z"
+    },
+    {
+      "id": "3dd9",
+      "category": "Fashion",
+      "title": "rwrw",
+      "price": "113",
+      "stock": "131",
+      "brand": "dgd",
+      "desc": "dgd",
+      "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425430/products/qycozdey4hurbigrwsje.png",
+      "createdAt": "2025-02-13T05:43:53.974Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "3bbf",
+      "cartItems": [
+        {
+          "id": "0262",
+          "category": "Electronics",
+          "title": "product1",
+          "price": "1000",
+          "stock": "20",
+          "brand": "brand",
+          "desc": "hlkjhlkjhlhl",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739423937/products/aazhivnedgebdbd7aybn.jpg",
+          "createdAt": "2025-02-13T05:19:08.384Z",
+          "qty": 1
+        }
+      ],
+      "total": 1000,
+      "email": "ram@gmail.com",
+      "name": "Ram",
+      "shippingAddress": {
+        "name": "erwr24",
+        "mobile": "24",
+        "address1": "424",
+        "address2": "242",
+        "city": "424",
+        "state": "4242",
+        "country": "wrwr",
+        "pincode": "23424"
+      },
+      "paymentMethod": "cod",
+      "status": "delivered",
+      "orderDate": "2/18/2025",
+      "orderTime": "11:18:15 AM",
+      "createdAt": "2025-02-18T05:48:15.300Z",
+      "editedAt": "2025-02-19T05:49:35.815Z"
+    },
+    {
+      "id": "c80c",
+      "cartItems": [
+        {
+          "id": "3dd9",
+          "category": "Fashion",
+          "title": "rwrw",
+          "price": "113",
+          "stock": "131",
+          "brand": "dgd",
+          "desc": "dgd",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425430/products/qycozdey4hurbigrwsje.png",
+          "createdAt": "2025-02-13T05:43:53.974Z",
+          "qty": 1
+        },
+        {
+          "id": "1596",
+          "category": "Electronics",
+          "title": "wrewr",
+          "price": "131",
+          "stock": "13",
+          "brand": "ete",
+          "desc": "ete",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425407/products/jpdahof2qcpm7msn2ygy.jpg",
+          "createdAt": "2025-02-13T05:43:31.535Z",
+          "qty": 1
+        }
+      ],
+      "total": 244,
+      "email": "ram@gmail.com",
+      "name": "Ram",
+      "shippingAddress": {
+        "name": "ram",
+        "mobile": "1111",
+        "address1": "r,kwrjnwrkw",
+        "address2": "kljhegjh",
+        "city": "rkjhwjh",
+        "state": "kjhjkelh",
+        "country": "hgekjlhlk",
+        "pincode": "8878"
+      },
+      "paymentMethod": "online",
+      "status": "processing",
+      "orderDate": "2/18/2025",
+      "orderTime": "11:22:37 AM",
+      "createdAt": "2025-02-18T05:52:37.780Z",
+      "editedAt": "2025-02-19T05:52:25.213Z"
+    },
+    {
+      "id": "b615",
+      "cartItems": [
+        {
+          "id": "3dd9",
+          "category": "Fashion",
+          "title": "rwrw",
+          "price": "113",
+          "stock": "131",
+          "brand": "dgd",
+          "desc": "dgd",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425430/products/qycozdey4hurbigrwsje.png",
+          "createdAt": "2025-02-13T05:43:53.974Z",
+          "qty": 1
+        }
+      ],
+      "total": 113,
+      "email": "meera@gmail.com",
+      "name": "meera",
+      "shippingAddress": {
+        "name": "ewqe",
+        "mobile": "313111",
+        "address1": "1313",
+        "address2": "1313",
+        "city": "131",
+        "state": "31313",
+        "country": "1313",
+        "pincode": "3129"
+      },
+      "paymentMethod": "cod",
+      "status": "placed",
+      "orderDate": "2/18/2025",
+      "orderTime": "11:38:05 AM",
+      "createdAt": "2025-02-18T06:08:05.951Z"
+    },
+    {
+      "id": "a6db",
+      "cartItems": [
+        {
+          "id": "3dd9",
+          "category": "Fashion",
+          "title": "rwrw",
+          "price": "113",
+          "stock": "131",
+          "brand": "dgd",
+          "desc": "dgd",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425430/products/qycozdey4hurbigrwsje.png",
+          "createdAt": "2025-02-13T05:43:53.974Z",
+          "qty": 1
+        }
+      ],
+      "total": 113,
+      "email": "meera@gmail.com",
+      "name": "meera",
+      "shippingAddress": {
+        "name": "ewqe",
+        "mobile": "313111",
+        "address1": "1313",
+        "address2": "1313",
+        "city": "131",
+        "state": "31313",
+        "country": "1313",
+        "pincode": "3129"
+      },
+      "paymentMethod": "cod",
+      "status": "placed",
+      "orderDate": "2/18/2025",
+      "orderTime": "11:39:22 AM",
+      "createdAt": "2025-02-18T06:09:22.510Z"
+    },
+    {
+      "id": "7be3",
+      "cartItems": [
+        {
+          "id": "3dd9",
+          "category": "Fashion",
+          "title": "rwrw",
+          "price": "113",
+          "stock": "131",
+          "brand": "dgd",
+          "desc": "dgd",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425430/products/qycozdey4hurbigrwsje.png",
+          "createdAt": "2025-02-13T05:43:53.974Z",
+          "qty": 1
+        }
+      ],
+      "total": 113,
+      "email": "meera@gmail.com",
+      "name": "meera",
+      "shippingAddress": {
+        "name": "ewqe",
+        "mobile": "313111",
+        "address1": "1313",
+        "address2": "1313",
+        "city": "131",
+        "state": "31313",
+        "country": "1313",
+        "pincode": "3129"
+      },
+      "paymentMethod": "cod",
+      "status": "placed",
+      "orderDate": "2/18/2025",
+      "orderTime": "11:40:28 AM",
+      "createdAt": "2025-02-18T06:10:28.901Z"
+    },
+    {
+      "id": "a011",
+      "cartItems": [
+        {
+          "id": "3dd9",
+          "category": "Fashion",
+          "title": "rwrw",
+          "price": "113",
+          "stock": "131",
+          "brand": "dgd",
+          "desc": "dgd",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425430/products/qycozdey4hurbigrwsje.png",
+          "createdAt": "2025-02-13T05:43:53.974Z",
+          "qty": 1
+        },
+        {
+          "id": "1596",
+          "category": "Electronics",
+          "title": "wrewr",
+          "price": "131",
+          "stock": "13",
+          "brand": "ete",
+          "desc": "ete",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739425407/products/jpdahof2qcpm7msn2ygy.jpg",
+          "createdAt": "2025-02-13T05:43:31.535Z",
+          "qty": 1
+        },
+        {
+          "id": "0262",
+          "category": "Electronics",
+          "title": "product1",
+          "price": "1000",
+          "stock": "20",
+          "brand": "brand",
+          "desc": "hlkjhlkjhlhl",
+          "image": "http://res.cloudinary.com/harshitalogicrays2/image/upload/v1739423937/products/aazhivnedgebdbd7aybn.jpg",
+          "createdAt": "2025-02-13T05:19:08.384Z",
+          "qty": 1
+        }
+      ],
+      "total": 1244,
+      "email": "meera@gmail.com",
+      "name": "meera",
+      "shippingAddress": {
+        "name": "ewqe",
+        "mobile": "313111",
+        "address1": "1313",
+        "address2": "1313",
+        "city": "131",
+        "state": "31313",
+        "country": "1313",
+        "pincode": "3129"
+      },
+      "paymentMethod": "online",
+      "status": "placed",
+      "orderDate": "2/18/2025",
+      "orderTime": "11:41:27 AM",
+      "createdAt": "2025-02-18T06:11:27.181Z"
+    }
+  ]
+}
